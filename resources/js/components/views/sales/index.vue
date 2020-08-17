@@ -2,7 +2,7 @@
   <div>
       <div class="card">
           <div class="card-body">
-              hola
+              hola que tal
           </div>
       </div>
   </div>
