@@ -66,21 +66,17 @@
                 </tr>
             @endforeach
         </table>
-
-        <footer>
-            mirar: <?php  echo "asda"?>
-        </footer>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/php">
         if (isset($pdf)) {
-            $x = 250;
-            $y = 10;
+            $x = 470;
+            $y = 800;
             $text = "Página {PAGE_NUM} de {PAGE_COUNT}";
             $font = null;
-            $size = 14;
-            $color = array(255,0,0);
+            $size = 10;
+            $color = array(0,0,0);
             $word_space = 0.0;  //  default
             $char_space = 0.0;  //  default
             $angle = 0.0;   //  default
