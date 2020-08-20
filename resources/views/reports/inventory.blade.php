@@ -34,5 +34,11 @@
         </table>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <style>
+        body{
+           hola 
+        }
+    </style>
 </body>
 </html>
