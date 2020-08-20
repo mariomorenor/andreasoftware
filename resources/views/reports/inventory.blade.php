@@ -68,12 +68,25 @@
         </table>
 
         <footer>
-            mirar: <?php  ?>
+            mirar: <?php  echo "asda"?>
         </footer>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-
+    <script type="text/php">
+        if (isset($pdf)) {
+            $x = 250;
+            $y = 10;
+            $text = "Página {PAGE_NUM} de {PAGE_COUNT}";
+            $font = null;
+            $size = 14;
+            $color = array(255,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
+    </script> 
     <style>
 
         header{
@@ -131,5 +144,6 @@
             background-color: rgb(123, 190, 157);
         }
     </style>
+    
 </body>
 </html>
