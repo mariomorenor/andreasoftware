@@ -37,8 +37,8 @@ class ReportController extends Controller
                 }else{
                     $products = Product::with(['prices'])->skip(($request->pageSize*$request->pageNumber) - $request->pageSize)->take($request->pageSize)->get();
                 };
-          
-            $pdf = \PDF::loadView('reports.inventory', compact('products'));
+                $isPDF = true;
+            $pdf = \PDF::loadView('reports.inventory', compact(['products','isPDF']));
             return $pdf->download('inventario.pdf');
         }else{   
             return \Excel::download(new ProductsExport, 'inventario.xlsx');
