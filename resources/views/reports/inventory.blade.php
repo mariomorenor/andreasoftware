@@ -16,32 +16,23 @@
         <div class="business">
           <p>
             <strong>Distribuidora de Productos Naturales "Voluntad de Dios"</strong><br>
-            Dirección de la empresa
+            Santo Domingo - Ecuador
           </p>
-        </div><!--.me-->
+        </div>
       
         <div class="info">
           <p>
             Sitio web: <a href="#">Sitio web de la empresa</a><br>
             E-mail: <a href="#">Correo de la empresa</a><br>
-            Teléfono: Telefóno de la empresa<br>
+            Teléfono: 0997987614<br>
           </p>
         </div>
-
-        <div class="social">
-            <p>
-              Facebook: <br>
-              Instagram: <br>
-              Twitter: <br>
-            </p>
-        </div>
-      
     </header>
     
     <div class="container">
 
-        <h2>Reporte de Inventario</h1>
-
+        <h2>Reporte de Inventario</h2>
+        
         <table class="inventory-report">
             <thead class="head-report">
                 <tr>
@@ -69,7 +60,9 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script type="text/php">
+
         if (isset($pdf)) {
             $x = 470;
             $y = 800;
@@ -82,7 +75,21 @@
             $angle = 0.0;   //  default
             $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
         }
+
+        if (isset($pdf)) {
+            $x = 70;
+            $y = 800;
+            $text = "Obtenido el: ".date('d-m-Y H:i:s');
+            $font = null;
+            $size = 10;
+            $color = array(0,0,0);
+            $word_space = 0.0;  //  default
+            $char_space = 0.0;  //  default
+            $angle = 0.0;   //  default
+            $pdf->page_text($x, $y, $text, $font, $size, $color, $word_space, $char_space, $angle);
+        }
     </script> 
+
     <style>
 
         header{
@@ -102,7 +109,7 @@
             font-size: 0
         }
         
-        .logo-report,.business,.info,.social,{
+        .logo-report,.business,.info{
             vertical-align: top;
             display: inline-block;
             font-size: 1rem;
@@ -110,9 +117,13 @@
             min-height: 1px
         }
 
+        .info{
+            margin-left: 5%;
+        }
+
         img{
-            width: 10%;
-            height: 10%;
+            width: 15%;
+            height: 15%;
         }
 
         h2{
@@ -126,14 +137,15 @@
 
         table{
             border-collapse: collapse;
+            margin-top: 2%;
         }
 
         tr > td, tr > th{
             border: 1rem solid rgb(19, 18, 18);
             border-collapse: collapse;
-            width: 100%;
-            margin: 12px;
-            padding: 12px;
+            margin: 8px;
+            padding: 8px;
+            font-size: 15px;
         }
 
         tr > th{
