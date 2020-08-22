@@ -2,8 +2,7 @@
   <div>
       <div class="card">
           <div class="card-body">
-              hola que tal
-              cambio random
+              hola mundo
           </div>
       </div>
   </div>
@@ -17,4 +16,4 @@ export default {
 
 <style>
 
-</style>
+</style> 
