@@ -2,7 +2,7 @@
   <div>
       <div class="card">
           <div class="card-body">
-              hola mundo
+              hola mundo, probando a ver si funciona, este es el formulario
           </div>
       </div>
   </div>
