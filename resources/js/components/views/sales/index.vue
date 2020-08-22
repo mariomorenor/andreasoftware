@@ -1,4 +1,6 @@
 <template>
+
+<body>
   <div>
       <div class="card">
           <div class="card-body">
@@ -6,6 +8,7 @@
           </div>
       </div>
   </div>
+</body>
 </template>
 
 <script>
@@ -15,5 +18,7 @@ export default {
 </script>
 
 <style>
-
+ body{
+     background-color: black;
+ }
 </style> 

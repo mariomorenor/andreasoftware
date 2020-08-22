@@ -12,7 +12,7 @@
             <input type="text" v-model="username" name="username" class="form-control">
           </div>
           <div class="form-group">
-            <label for="password">Contrasena:</label>
+            <label for="password">Contraseña:</label>
             <input type="password" name="password" v-model="password" class="form-control">
           </div>
           <div class="form-group mb-0">
