@@ -2,7 +2,7 @@
   <div>
       <div class="card">
           <div class="card-body">
-              hola mundo, probando a ver si funciona, este es el formulario
+              hola mundo, probando a ver si funciona, este es el master
           </div>
       </div>
   </div>
