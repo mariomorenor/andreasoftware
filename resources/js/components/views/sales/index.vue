@@ -2,7 +2,7 @@
 
 <div>
 
-    
+
   <div class="row section">
 
 	<div class="col-2">
