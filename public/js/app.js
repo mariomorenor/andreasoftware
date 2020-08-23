@@ -6635,23 +6635,32 @@ __webpack_require__.r(__webpack_exports__);
     addIncome: function addIncome() {
       var _this = this;
 
-      axios.post('/incomes', {
-        user_id: this.$store.state.user.id,
-        quantity: this.quantityIncome,
-        date: this.dateNewIncome,
-        time: this.timeNewIncome
-      }).then(function (data) {
-        if (data.status == 200) {
-          _this.resetModalNewIncome();
+      if (this.quantityIncome <= 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'La cantidad no puede ser menor o igual a 0',
+          timer: 1500
+        });
+      } else {
+        axios.post('/incomes', {
+          user_id: this.$store.state.user.id,
+          quantity: this.quantityIncome,
+          date: this.dateNewIncome,
+          time: this.timeNewIncome
+        }).then(function (data) {
+          if (data.status == 200) {
+            _this.resetModalNewIncome();
 
-          $('#tableBanks').bootstrapTable('refresh');
-          Swal.fire({
-            icon: 'success',
-            title: 'La operación se realizó Correctamente!',
-            timer: 1500
-          });
-        }
-      });
+            $('#tableBanks').bootstrapTable('refresh');
+            Swal.fire({
+              icon: 'success',
+              title: 'La operación se realizó Correctamente!',
+              timer: 1500
+            });
+          }
+        });
+      }
     },
     resetModalNewIncome: function resetModalNewIncome() {
       $('#modalAddIncome').modal('hide');

@@ -131,6 +131,14 @@ export default {
             });
         },
         addIncome(){  
+            if (this.quantityIncome <= 0 ) {
+                Swal.fire({
+                    icon:'error',
+                    title: 'Error!',
+                    text:'La cantidad no puede ser menor o igual a 0',
+                    timer:1500
+                })
+            } else {
             axios.post('/incomes',{
                     user_id: this.$store.state.user.id,
                     quantity:this.quantityIncome,
@@ -148,6 +156,7 @@ export default {
                     })
                 }
             })
+            }
         },
         resetModalNewIncome(){
                     $('#modalAddIncome').modal('hide');
