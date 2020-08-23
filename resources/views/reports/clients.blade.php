@@ -7,9 +7,11 @@
 </head>
 <body>
 
-    <header class="row">
+    <div class="row header1">
         <div class="logo-report text-center" >
-          <img src="{{ asset('img/app/imgLogo.jpeg') }}">
+            @isset ($isPDF)
+            <img src="{{ asset('img/app/imgLogo.jpeg') }}">
+            @endisset
         </div>
       
         <div class="business">
@@ -26,11 +28,11 @@
             Teléfono: 0997987614<br>
           </p>
         </div>
-    </header>
+    </div>
 
     <div class="container">
 
-        <h2>Reporte de Clientes</h1>
+        <h2>Reporte de Clientes</h2>
 
         <table class="clients-report">
             <thead class="head-report">
@@ -89,7 +91,7 @@
 
     <style>
 
-        header{
+        .header1{
             margin: 0;
             padding: 0;
             border-bottom: 1pt solid rgb(123, 190, 157);

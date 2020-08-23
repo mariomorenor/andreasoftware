@@ -7438,6 +7438,123 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -69726,7 +69843,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "password" } }, [
-              _vm._v("Contrasena:")
+              _vm._v("Contraseña:")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -70480,9 +70597,190 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v("\n            hola\n        ")
+      _c("div", { staticClass: "row section" }, [
+        _c("div", { staticClass: "col-2" }, [
+          _c("h1", { attrs: { contenteditable: "" } }, [_vm._v("Factura")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-2 text-right details" }, [
+          _c("p", { attrs: { contenteditable: "" } }, [
+            _vm._v("\r\n      Fecha: "),
+            _c("input", { staticClass: "datePicker", attrs: { type: "text" } }),
+            _c("br"),
+            _vm._v("\r\n      Factura #: "),
+            _c("input", { attrs: { type: "text", value: "100" } }),
+            _c("br"),
+            _vm._v("\r\n     Vence: "),
+            _c("input", { staticClass: "twoweeks", attrs: { type: "text" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-2" }, [
+          _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
+            _c("strong", [_vm._v("Facturar a")]),
+            _c("br"),
+            _vm._v("\r\n      [Nombre cliente]"),
+            _c("br"),
+            _vm._v("\r\n      [Nombre emmpresa]"),
+            _c("br"),
+            _vm._v("\r\n\t    [Dirección empresa]"),
+            _c("br"),
+            _vm._v("\r\n\t    [Tel empresa]\r\n    ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-2" }, [
+          _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
+            _c("strong", [_vm._v("Enviar a")]),
+            _c("br"),
+            _vm._v("\r\n      [Nombre cliente]"),
+            _c("br"),
+            _vm._v("\r\n      [Nombre emmpresa]"),
+            _c("br"),
+            _vm._v("\r\n\t  [Dirección empresa]"),
+            _c("br"),
+            _vm._v("\r\n\t  [Tel empresa]\r\n    ")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row section", staticStyle: { "margin-top": "-1rem" } },
+        [
+          _c("div", { staticClass: "col-1" }, [
+            _c("table", { staticStyle: { width: "100%" } }, [
+              _c("thead", { attrs: { contenteditable: "" } }, [
+                _c("tr", { staticClass: "invoice_detail" }, [
+                  _c(
+                    "th",
+                    {
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "25%" }
+                    },
+                    [_vm._v("Vendedor")]
+                  ),
+                  _vm._v(" "),
+                  _c("th", { attrs: { width: "25%" } }, [
+                    _vm._v("Orden de compra ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { width: "20%" } }, [_vm._v("Enviar por")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { width: "30%" } }, [
+                    _vm._v("Términos y condiciones")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tbody", { attrs: { contenteditable: "" } }, [
+                _c("tr", { staticClass: "invoice_detail" }, [
+                  _c(
+                    "td",
+                    {
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "25%" }
+                    },
+                    [_vm._v("John Doe")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "25%" } }, [_vm._v("#PO-2020 ")]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "20%" } }, [_vm._v("DHL")]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { width: "30%" } }, [
+                    _vm._v("Pago al contado")
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "invoicelist-body" }, [
+        _c("table", [
+          _c("thead", { attrs: { contenteditable: "" } }, [
+            _c("th", { attrs: { width: "5%" } }, [_vm._v("Código")]),
+            _vm._v(" "),
+            _c("th", { attrs: { width: "60%" } }, [_vm._v("Descripción")]),
+            _vm._v(" "),
+            _c("th", { attrs: { width: "10%" } }, [_vm._v("Cant.")]),
+            _vm._v(" "),
+            _c("th", { attrs: { width: "15%" } }, [_vm._v("Precio")]),
+            _vm._v(" "),
+            _c("th", { attrs: { width: "10%" } }, [_vm._v("Total")])
+          ]),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("td", { attrs: { width: "5%" } }, [
+                _c(
+                  "a",
+                  { staticClass: "control removeRow", attrs: { href: "#" } },
+                  [_vm._v("x")]
+                ),
+                _vm._v(" "),
+                _c("span", { attrs: { contenteditable: "" } }, [
+                  _vm._v("12345")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { width: "60%" } }, [
+                _c("span", { attrs: { contenteditable: "" } }, [
+                  _vm._v("Descripción")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "amount" }, [
+                _c("input", { attrs: { type: "text", value: "1" } })
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "rate" }, [
+                _c("input", { attrs: { type: "text", value: "99" } })
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "sum" })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "control newRow", attrs: { href: "#" } }, [
+          _vm._v("+ Nueva fila")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "invoicelist-footer" }, [
+        _c("table", { attrs: { contenteditable: "" } }, [
+          _c("tr", { staticClass: "taxrelated" }, [
+            _c("td", [_vm._v("IVA:")]),
+            _vm._v(" "),
+            _c("td", { attrs: { id: "total_tax" } })
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_c("strong", [_vm._v("Total:")])]),
+            _vm._v(" "),
+            _c("td", { attrs: { id: "total_price" } })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "note", attrs: { contenteditable: "" } }, [
+        _c("h2", [_vm._v("Nota:")])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-1 text-center" }, [
+          _c(
+            "p",
+            { staticClass: "notaxrelated", attrs: { contenteditable: "" } },
+            [
+              _vm._v(
+                "El monto de la factura no incluye el impuesto sobre las ventas."
+              )
+            ]
+          )
         ])
       ])
     ])
@@ -88123,8 +88421,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Andrea\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Andrea\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\andrea\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\andrea\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
