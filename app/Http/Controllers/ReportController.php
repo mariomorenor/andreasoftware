@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Exports\ClientsExport;
+use App\Exports\IncomesExport;
 use App\Exports\ProductsExport;
+use App\Income;
 use App\Product;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -20,7 +22,9 @@ class ReportController extends Controller
             case 'clients':
                 return $this->clients($request->format, $request);
                 break;
-            
+            case 'banks':
+                return $this->banks($request->format, $request);
+                break;
             default:
                 # code...
                 break;
@@ -59,7 +63,21 @@ class ReportController extends Controller
             return \Excel::download(new ClientsExport, 'clientes.xlsx');
         }
     }
-
+    public function banks($format, $request)
+    {
+        if ($format=='PDF') {
+                if ($request->pageSize == 'Todos') {
+                    $incomes = Income::with(['User'])->get();
+                }else{
+                    $incomes = Income::with(['User'])->skip(($request->pageSize*$request->pageNumber) - $request->pageSize)->take($request->pageSize)->get();
+                };
+                $isPDF = true;
+            $pdf = \PDF::loadView('reports.incomes', compact(['incomes','isPDF']));
+            return $pdf->download('reporte_ingresos.pdf');
+        }else{   
+            return \Excel::download(new IncomesExport, 'ingresos.xlsx');
+        }
+    }
 
 
 }

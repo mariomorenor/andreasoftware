@@ -6386,7 +6386,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.isAuth) {
       this.$router.push({
-        name: 'inventory'
+        name: 'banks'
       });
     } else {
       this.$router.push({
@@ -6525,17 +6525,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       since: '',
       until: '',
-      quantity: ''
+      quantity: '',
+      dateNewIncome: '',
+      quantityIncome: 0,
+      timeNewIncome: '',
+      totalPages: '',
+      pageNumber: '',
+      pageSize: ''
     };
   },
   beforeMount: function beforeMount() {
     this.since = moment(moment().date(1)).format('Y-MM-DD');
     this.until = this.today;
+    this.dateNewIncome = moment().format('Y-MM-DD');
+    this.timeNewIncome = moment().format('LT');
   },
   mounted: function mounted() {
     this.init();
@@ -6544,11 +6597,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     screenSize: function screenSize() {
       if (window.innerWidth <= 1366) {
-        $('#tableInventario').bootstrapTable('resetView', {
+        $('#tableBanks').bootstrapTable('resetView', {
           height: 450
         });
       } else if (window.innerWidth > 1366 && window.innerWidth <= 1920) {
-        $('#tableInventario').bootstrapTable('resetView', {
+        $('#tableBanks').bootstrapTable('resetView', {
           height: 700
         });
       }
@@ -6580,16 +6633,38 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addIncome: function addIncome() {
-      var that = this;
+      var _this = this;
+
       axios.post('/incomes', {
-        user_id: that.$store.state.user.id,
-        quantity: 3,
-        date: moment().format("YYYY-MM-DD"),
-        time: moment().format("hh:mm:ss")
-      }).then(function (_ref) {
-        var data = _ref.data;
-        console.log(data);
+        user_id: this.$store.state.user.id,
+        quantity: this.quantityIncome,
+        date: this.dateNewIncome,
+        time: this.timeNewIncome
+      }).then(function (data) {
+        if (data.status == 200) {
+          _this.resetModalNewIncome();
+
+          $('#tableBanks').bootstrapTable('refresh');
+          Swal.fire({
+            icon: 'success',
+            title: 'La operación se realizó Correctamente!',
+            timer: 1500
+          });
+        }
       });
+    },
+    resetModalNewIncome: function resetModalNewIncome() {
+      $('#modalAddIncome').modal('hide');
+      this.dateNewIncome = moment().format('Y-MM-DD');
+      this.quantityIncome = 0;
+      this.timeNewIncome = moment().format('LT');
+    },
+    downloadPDF: function downloadPDF() {
+      this.totalPages = $('#tableBanks').bootstrapTable('getOptions').totalPages, this.pageNumber = $('#tableBanks').bootstrapTable('getOptions').pageNumber;
+      this.pageSize = $('#tableBanks').bootstrapTable('getOptions').pageSize;
+      setTimeout(function () {
+        $('#formPDF')[0].submit(function (e) {});
+      }, 500);
     }
   },
   computed: {
@@ -7428,6 +7503,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -12026,7 +12105,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media screen and (min-width: 1367px){\n#MainBanks{\r\n    margin-top: 3rem;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-info{\r\n    color: #fff;\r\nbackground-color: #17a2b8;\r\nborder-color: #17a2b8;\n}\n.btn-info:hover{\r\nbackground-color: #2a717c;\r\nborder-color: #2a717c;\n}\n@media screen and (min-width: 1367px){\n#MainBanks{\r\n    margin-top: 3rem;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -68892,7 +68971,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-success ml-3",
+            staticClass: "btn btn-info ml-3",
             attrs: {
               type: "button",
               disabled: _vm.since == "" || _vm.until == "" ? true : false
@@ -68907,10 +68986,212 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "inline-block",
+          attrs: {
+            action: "/report-download/banks",
+            id: "formPDF",
+            method: "get"
+          }
+        },
+        [
+          _c("input", {
+            attrs: { type: "hidden", name: "format", value: "PDF" }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "totalPages" },
+            domProps: { value: _vm.totalPages }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "pageNumber" },
+            domProps: { value: _vm.pageNumber }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "pageSize" },
+            domProps: { value: _vm.pageSize }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger ml-5",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.downloadPDF()
+                }
+              }
+            },
+            [_vm._v("PDF")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(1)
     ]),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(2),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalAddIncome",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "px-4 col-8 mx-auto" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "dateNewIncome" } }, [
+                      _vm._v("Fecha:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.dateNewIncome,
+                          expression: "dateNewIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "date",
+                        name: "dateNewIncome",
+                        max: _vm.dateNewIncome,
+                        id: "dateNewIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.dateNewIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.dateNewIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "quantity" } }, [
+                      _vm._v("Cantidad $:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.quantityIncome,
+                          expression: "quantityIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        name: "quantityIncome",
+                        id: "quantityIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.quantityIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.quantityIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "timeNewIncome" } }, [
+                      _vm._v("Hora:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.timeNewIncome,
+                          expression: "timeNewIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "time",
+                        name: "timeNewIncome",
+                        id: "timeNewIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.timeNewIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.timeNewIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cancelar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success shadow-lg",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.addIncome()
+                      }
+                    }
+                  },
+                  [_vm._v("Agregar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -68921,10 +69202,41 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        {
+          staticClass: "btn btn-primary ml-3",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-backdrop": "static",
+            "data-target": "#modalAddIncome"
+          }
+        },
         [_vm._v("Agregar Depósito")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      {
+        staticClass: "inline-block",
+        attrs: { action: "/report-download/banks", method: "get" }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "format", value: "EXCEL" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-success ml-1", attrs: { type: "submit" } },
+          [_vm._v("EXCEL")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -68936,6 +69248,7 @@ var staticRenderFns = [
         attrs: {
           id: "tableBanks",
           "data-toolbar": "#toolbarTableBank",
+          "data-page-list": "[10,25,50,100,all]",
           "data-pagination": "true",
           "data-search": "true"
         }
@@ -68985,6 +69298,31 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Nuevo Depósito")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -69726,7 +70064,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "password" } }, [
-              _vm._v("Contrasena:")
+              _vm._v("Contraseña:")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -70479,10 +70817,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v("\n            hola\n        ")
+    return _c("body", [
+      _c("div", [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v(
+              "\r\n              hola mundo, probando a ver si funciona, este es el master\r\n              hola mundo, este es el formulario\r\n          "
+            )
+          ])
         ])
       ])
     ])

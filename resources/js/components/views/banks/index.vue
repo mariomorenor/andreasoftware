@@ -8,13 +8,24 @@
           <div class="form-group ml-2 d-flex">
               <label for="until" class="font-weight-bold my-auto">Hasta:</label>
               <input type="date" name="until" class="form-control" :min="since" :max="today" id="inputUntil" v-model="until">
-              <button type="button" @click="filterByDate()" class="btn btn-success ml-3" :disabled="since == '' || until == '' ? true:false">Filtrar</button>
+              <button type="button" @click="filterByDate()" class="btn btn-info ml-3" :disabled="since == '' || until == '' ? true:false">Filtrar</button>
           </div>
           <div class="form-group">
-              <button class="btn btn-primary" type="button">Agregar Depósito</button>
+              <button class="btn btn-primary ml-3" type="button"  data-toggle="modal" data-backdrop="static" data-target="#modalAddIncome">Agregar Depósito</button>
           </div>
+        <form action="/report-download/banks" id="formPDF" class="inline-block" method="get">
+            <input type="hidden" name="format" value="PDF">
+            <input type="hidden" name='totalPages' :value="totalPages">
+            <input type="hidden" name='pageNumber' :value="pageNumber" >
+            <input type="hidden" name='pageSize' :value="pageSize" >
+            <button type="button" @click="downloadPDF()" class="btn btn-danger ml-5">PDF</button>
+        </form>
+        <form action="/report-download/banks" class="inline-block" method="get">
+        <input type="hidden" name="format" value="EXCEL">
+            <button type="submit" class="btn btn-success ml-1">EXCEL</button>
+        </form>
       </div>
-      <table id="tableBanks" data-toolbar="#toolbarTableBank" data-pagination="true" data-search="true">
+      <table id="tableBanks" data-toolbar="#toolbarTableBank" data-page-list="[10,25,50,100,all]" data-pagination="true" data-search="true">
           <thead class="thead-dark">
               <tr>
                   <th data-field="date" data-width="300" data-sortable="true" data-align="center" data-formatter="banksDateFormatter">Fecha</th>
@@ -23,6 +34,40 @@
               </tr>
           </thead>
       </table>
+        <!-- Modal -->
+        <div class="modal fade" id="modalAddIncome" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Depósito</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="px-4 col-8 mx-auto">
+                            <div class="form-group">
+                                <label for="dateNewIncome">Fecha:</label>
+                                <input type="date" name="dateNewIncome" v-model="dateNewIncome" :max="dateNewIncome" id="dateNewIncome" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Cantidad $:</label>
+                                <input type="number" name="quantityIncome" v-model="quantityIncome" id="quantityIncome" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeNewIncome">Hora:</label>
+                                <input type="time" name="timeNewIncome" v-model="timeNewIncome" id="timeNewIncome" class="form-control" required>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success shadow-lg" @click="addIncome()">Agregar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
   </div>
 </template>
 
@@ -32,12 +77,20 @@ export default {
         return {
             since: '',
             until:'',
-            quantity:''
+            quantity:'',
+            dateNewIncome:'',
+            quantityIncome:0,
+            timeNewIncome:'',
+            totalPages:'',
+            pageNumber:'',
+            pageSize:'',
         }
     },
     beforeMount() {
         this.since = moment(moment().date(1)).format('Y-MM-DD');
         this.until = this.today;
+        this.dateNewIncome = moment().format('Y-MM-DD');
+        this.timeNewIncome = moment().format('LT');
     },
     mounted() {
         this.init()
@@ -46,9 +99,9 @@ export default {
     methods: {
         screenSize(){
                     if (window.innerWidth<=1366) {
-                        $('#tableInventario').bootstrapTable( 'resetView' , {height: 450} );
+                        $('#tableBanks').bootstrapTable( 'resetView' , {height: 450} );
                     } else if(window.innerWidth>1366 && window.innerWidth<=1920) {
-                            $('#tableInventario').bootstrapTable( 'resetView' , {height: 700} );
+                            $('#tableBanks').bootstrapTable( 'resetView' , {height: 700} );
                     }
         },
         init(){
@@ -77,20 +130,40 @@ export default {
                 }
             });
         },
-        addIncome(){
-            let that = this;
-            
+        addIncome(){  
             axios.post('/incomes',{
-                    user_id: that.$store.state.user.id,
-                    quantity:3,
-                    date: moment().format("YYYY-MM-DD"),
-                    time: moment().format("hh:mm:ss"),
-                
+                    user_id: this.$store.state.user.id,
+                    quantity:this.quantityIncome,
+                    date: this.dateNewIncome,
+                    time: this.timeNewIncome,
             })
-            .then(({data})=>{
-                console.log(data)
+            .then((data)=>{
+                if (data.status == 200) {
+                    this.resetModalNewIncome();
+                    $('#tableBanks').bootstrapTable('refresh');
+                    Swal.fire({
+                        icon:'success',
+                        title:'La operación se realizó Correctamente!',
+                        timer:1500
+                    })
+                }
             })
-        }
+        },
+        resetModalNewIncome(){
+                    $('#modalAddIncome').modal('hide');
+                    this.dateNewIncome = moment().format('Y-MM-DD');
+                    this.quantityIncome = 0;
+                    this.timeNewIncome = moment().format('LT');
+        },
+        downloadPDF(){
+            this.totalPages = $('#tableBanks').bootstrapTable('getOptions').totalPages,
+            this.pageNumber = $('#tableBanks').bootstrapTable('getOptions').pageNumber
+            this.pageSize = $('#tableBanks').bootstrapTable('getOptions').pageSize
+            setTimeout(function(){
+              $('#formPDF')[0].submit(function (e) {});
+              
+            },500);       
+    }
     },
     computed: {
         today(){
@@ -101,6 +174,15 @@ export default {
 </script>
 
 <style>
+.btn-info{
+    color: #fff;
+background-color: #17a2b8;
+border-color: #17a2b8;
+}
+.btn-info:hover{
+background-color: #2a717c;
+border-color: #2a717c;
+}
 @media screen and (min-width: 1367px){
   #MainBanks{
     margin-top: 3rem;
