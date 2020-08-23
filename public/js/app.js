@@ -7555,6 +7555,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -12277,6 +12302,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, "\n.containerProducto{\r\n  width: 50rem;\r\n  background: whitesmoke;\r\n  margin: auto;\r\n  margin-top: 5rem;\r\n  padding: 2rem 3rem;\r\n  border-radius: 1.5rem;\n}\n@media screen and (max-width: 1366px){\n.containerProducto{\r\n        margin-top: 1rem;\n}\n}\n.btnModificar:hover, .btnModificar:active {\r\n  background-color: rgb(141, 35, 141);\r\n  border: 1px solid rgb(141, 35, 141);\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n /*! normalize.css v3.0.2 | MIT License | git.io/normalize */\n.html-formulario {\n    font-family: sans-serif;\n    -ms-text-size-adjust: 100%;\n    -webkit-text-size-adjust: 100%\n}\n.body-formularo {\n    margin: 0\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n    display: block\n}\naudio,\ncanvas,\nprogress,\nvideo {\n    display: inline-block;\n    vertical-align: baseline\n}\naudio:not([controls]) {\n    display: none;\n    height: 0\n}\n[hidden],\ntemplate {\n    display: none\n}\na {\n    background-color: transparent\n}\na:active,\na:hover {\n    outline: 0\n}\nabbr[title] {\n    border-bottom: 1px dotted\n}\nb,\nstrong {\n    font-weight: bold\n}\ndfn {\n    font-style: italic\n}\nh1 {\n    font-size: 2em;\n    margin: 0.67em 0\n}\nmark {\n    background: #ff0;\n    color: #000\n}\nsmall {\n    font-size: 80%\n}\nsub,\nsup {\n    font-size: 75%;\n    line-height: 0;\n    position: relative;\n    vertical-align: baseline\n}\nsup {\n    top: -0.5em\n}\nsub {\n    bottom: -0.25em\n}\nimg {\n    border: 0\n}\nsvg:not(:root) {\n    overflow: hidden\n}\nfigure {\n    margin: 1em 40px\n}\nhr {\n    box-sizing: content-box;\n    height: 0\n}\npre {\n    overflow: auto\n}\ncode,\nkbd,\npre,\nsamp {\n    font-family: monospace, monospace;\n    font-size: 1em\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n    color: inherit;\n    font: inherit;\n    margin: 0\n}\nbutton {\n    overflow: visible\n}\nbutton,\nselect {\n    text-transform: none\n}\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n    -webkit-appearance: button;\n    cursor: pointer\n}\nbutton[disabled],\n.html-formulario input[disabled] {\n    cursor: default\n}\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n    border: 0;\n    padding: 0\n}\ninput {\n    line-height: normal\n}\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n    box-sizing: border-box;\n    padding: 0\n}\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n    height: auto\n}\ninput[type=\"search\"] {\n    -webkit-appearance: textfield;\n    box-sizing: content-box\n}\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n    -webkit-appearance: none\n}\nfieldset {\n    border: 1px solid #c0c0c0;\n    margin: 0 2px;\n    padding: 0.35em 0.625em 0.75em\n}\nlegend {\n    border: 0;\n    padding: 0\n}\ntextarea {\n    overflow: auto\n}\noptgroup {\n    font-weight: bold\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0\n}\ntd,\nth {\n    padding: 0\n}\n.html-formulario {\n    font-size: 12px;\n    line-height: 1.5;\n    color: #000;\n    background: #ddd;\n    box-sizing: border-box\n}\n.body-formulario {\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    margin: 6rem auto 0;\n    max-width: 800px;\n    background: white;\n    border: 1px solid #aaa;\n    padding: 2rem\n}\n.container {\n    max-width: 800px;\n    margin-left: auto;\n    margin-right: auto;\n    padding-left: 1rem;\n    padding-right: 1rem\n}\n*,\n*:before,\n*:after {\n    box-sizing: inherit\n}\n[contenteditable]:hover,\n[contenteditable]:focus,\ninput:hover,\ninput:focus {\n    background: rgba(241, 76, 76, 0.1);\n    outline: 1px solid #009688\n}\n.group:after,\n.row:after,\n.invoicelist-footer:after {\n    content: \"\";\n    display: table;\n    clear: both\n}\na {\n    color: #009688;\n    text-decoration: none\n}\np {\n    margin: 0\n}\n.row {\n    position: relative;\n    display: block;\n    width: 100%;\n    font-size: 0\n}\n.col,\n.logoholder,\n.me,\n.info,\n.bank,\n[class*=\"col-\"] {\n    vertical-align: top;\n    display: inline-block;\n    font-size: 1rem;\n    padding: 0 1rem;\n    min-height: 1px\n}\n.col-4 {\n    width: 25%\n}\n.col-3 {\n    width: 33.33%\n}\n.col-2 {\n    width: 50%\n}\n.col-2-4 {\n    width: 75%\n}\n.col-1 {\n    width: 100%\n}\n.text-center {\n    text-align: center\n}\n.text-right {\n    text-align: right\n}\n.control-bar {\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 100;\n    background: #009688;\n    color: white;\n    line-height: 4rem;\n    height: 4rem\n}\n.control-bar .slogan {\n    font-weight: bold;\n    font-size: 1.2rem;\n    display: inline-block;\n    margin-right: 2rem\n}\n.control-bar label {\n    margin-right: 1rem\n}\n.control-bar a {\n    margin: 0;\n    padding: .5em 1em;\n    background: rgba(255, 255, 255, 0.8)\n}\n.control-bar a:hover {\n    background: #fff\n}\n.control-bar input {\n    border: none;\n    background: rgba(255, 255, 255, 0.2);\n    padding: .5rem 0;\n    max-width: 30px;\n    text-align: center\n}\n.control-bar input:hover {\n    background: rgba(255, 255, 255, 0.3)\n}\n.hidetax .taxrelated {\n    display: none\n}\n.showtax .notaxrelated {\n    display: none\n}\n.hidedate .daterelated {\n    display: none\n}\n.showdate .notdaterelated {\n    display: none\n}\nheader {\n    margin: 1rem 0 0;\n    padding: 0 0 2rem 0;\n    border-bottom: 3pt solid #009688\n}\nheader p {\n    font-size: .9rem\n}\nheader a {\n    color: #000\n}\n.logo {\n    margin: 0 auto;\n    width: auto;\n    height: auto;\n    border: none;\n    fill: #009688\n}\n.logoholder {\n    width: 14%\n}\n.me {\n    width: 30%\n}\n.info {\n    width: 30%\n}\n.bank {\n    width: 26%\n}\n.section {\n    margin: 2rem 0 0\n}\n.smallme {\n    display: inline-block;\n    text-transform: uppercase;\n    margin: 0 0 2rem 0;\n    font-size: .9rem\n}\n.client {\n    margin: 0 0 3rem 0\n}\nh1 {\n    margin: 0;\n    padding: 0;\n    font-size: 2rem;\n    color: #009688\n}\n.details input {\n    display: inline;\n    margin: 0 0 0 .5rem;\n    border: none;\n    width: 50px;\n    min-width: 0;\n    background: transparent;\n    text-align: left\n}\n.invoice_detail{\n\tborder: solid 1px #009688;\n\tpadding:10px;\n\theight:25px;\n\ttext-align:center\n}\n.rate:before,\n.price:before,\n.sum:before,\n.tax:before,\n#total_price:before,\n#total_tax:before {\n    content: '$'\n}\n.invoicelist-body {\n    margin: 1rem\n}\n.invoicelist-body table {\n    width: 100%\n}\n.invoicelist-body thead {\n    text-align: left;\n    border-bottom: 1pt solid #666\n}\n.invoicelist-body td,\n.invoicelist-body th {\n    position: relative;\n    padding: 1rem\n}\n.invoicelist-body tr:nth-child(even) {\n    background: #ccc\n}\n.invoicelist-body tr:hover .removeRow {\n    display: block\n}\n.invoicelist-body input {\n    display: inline;\n    margin: 0;\n    border: none;\n    width: 80%;\n    min-width: 0;\n    background: transparent;\n    text-align: left\n}\n.invoicelist-body .control {\n    display: inline-block;\n    color: white;\n    background: #009688;\n    padding: 3px 7px;\n    font-size: .9rem;\n    text-transform: uppercase;\n    cursor: pointer\n}\n.invoicelist-body .control:hover {\n    background: #f36464\n}\n.invoicelist-body .newRow {\n    margin: .5rem 0;\n    float: left\n}\n.invoicelist-body .removeRow {\n    display: none;\n    position: absolute;\n    top: .1rem;\n    bottom: .1rem;\n    left: -1.3rem;\n    font-size: .7rem;\n    border-radius: 3px 0 0 3px;\n    padding: .5rem\n}\n.invoicelist-footer {\n    margin: 1rem\n}\n.invoicelist-footer table {\n    float: right;\n    width: 25%\n}\n.invoicelist-footer table td {\n    padding: 1rem 2rem 0 1rem;\n    text-align: right\n}\n.invoicelist-footer table tr:nth-child(2) td {\n    padding-top: 0\n}\n.invoicelist-footer table #total_price {\n    font-size: 2rem;\n    color: #009688\n}\n.note {\n    margin: 1rem\n}\n.hidenote .note {\n    display: none\n}\n.note h2 {\n    margin: 0;\n    font-size: 1rem;\n    font-weight: bold\n}\nfooter {\n    display: block;\n    margin: 1rem 0;\n    padding: 1rem 0 0\n}\nfooter p {\n    font-size: .8rem\n}\n@media print {\n.html-formulario {\n        margin: 0;\n        padding: 0;\n        background: #fff\n}\n.body-formulario {\n        width: 100%;\n        border: none;\n        background: #fff;\n        color: #000;\n        margin: 0;\n        padding: 0\n}\n.control,\n    .control-bar {\n        display: none !important\n}\n[contenteditable]:hover,\n    [contenteditable]:focus {\n        outline: none\n}\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -64904,6 +64948,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -70596,191 +70670,250 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "row section" }, [
-        _c("div", { staticClass: "col-2" }, [
-          _c("h1", { attrs: { contenteditable: "" } }, [_vm._v("Factura")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2 text-right details" }, [
-          _c("p", { attrs: { contenteditable: "" } }, [
-            _vm._v("\r\n      Fecha: "),
-            _c("input", { staticClass: "datePicker", attrs: { type: "text" } }),
-            _c("br"),
-            _vm._v("\r\n      Factura #: "),
-            _c("input", { attrs: { type: "text", value: "100" } }),
-            _c("br"),
-            _vm._v("\r\n     Vence: "),
-            _c("input", { staticClass: "twoweeks", attrs: { type: "text" } })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
-          _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
-            _c("strong", [_vm._v("Facturar a")]),
-            _c("br"),
-            _vm._v("\r\n      [Nombre cliente]"),
-            _c("br"),
-            _vm._v("\r\n      [Nombre emmpresa]"),
-            _c("br"),
-            _vm._v("\r\n\t    [Dirección empresa]"),
-            _c("br"),
-            _vm._v("\r\n\t    [Tel empresa]\r\n    ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-2" }, [
-          _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
-            _c("strong", [_vm._v("Enviar a")]),
-            _c("br"),
-            _vm._v("\r\n      [Nombre cliente]"),
-            _c("br"),
-            _vm._v("\r\n      [Nombre emmpresa]"),
-            _c("br"),
-            _vm._v("\r\n\t  [Dirección empresa]"),
-            _c("br"),
-            _vm._v("\r\n\t  [Tel empresa]\r\n    ")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row section", staticStyle: { "margin-top": "-1rem" } },
-        [
-          _c("div", { staticClass: "col-1" }, [
-            _c("table", { staticStyle: { width: "100%" } }, [
-              _c("thead", { attrs: { contenteditable: "" } }, [
-                _c("tr", { staticClass: "invoice_detail" }, [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "text-align": "center" },
-                      attrs: { width: "25%" }
-                    },
-                    [_vm._v("Vendedor")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { attrs: { width: "25%" } }, [
-                    _vm._v("Orden de compra ")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { width: "20%" } }, [_vm._v("Enviar por")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { width: "30%" } }, [
-                    _vm._v("Términos y condiciones")
-                  ])
+    return _c("div", { staticClass: "html-formulario" }, [
+      _c("div", { staticClass: "body-formulario" }, [
+        _c("div", { staticClass: "control-bar" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-2-4" }, [
+                _c("div", { staticClass: "slogan" }, [_vm._v("Facturación ")]),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "config_tax" } }, [
+                  _vm._v("IVA:\r\n          "),
+                  _c("input", { attrs: { type: "checkbox", id: "config_tax" } })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "taxrelated",
+                    attrs: { for: "config_tax_rate" }
+                  },
+                  [
+                    _vm._v("Tasa:\r\n          "),
+                    _c("input", {
+                      attrs: {
+                        type: "text",
+                        id: "config_tax_rate",
+                        value: "13"
+                      }
+                    }),
+                    _vm._v("%\r\n        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "config_note" } }, [
+                  _vm._v("Nota:\r\n          "),
+                  _c("input", {
+                    attrs: { type: "checkbox", id: "config_note" }
+                  })
                 ])
               ]),
               _vm._v(" "),
-              _c("tbody", { attrs: { contenteditable: "" } }, [
-                _c("tr", { staticClass: "invoice_detail" }, [
-                  _c(
-                    "td",
-                    {
-                      staticStyle: { "text-align": "center" },
-                      attrs: { width: "25%" }
-                    },
-                    [_vm._v("John Doe")]
-                  ),
-                  _vm._v(" "),
-                  _c("td", { attrs: { width: "25%" } }, [_vm._v("#PO-2020 ")]),
-                  _vm._v(" "),
-                  _c("td", { attrs: { width: "20%" } }, [_vm._v("DHL")]),
-                  _vm._v(" "),
-                  _c("td", { attrs: { width: "30%" } }, [
-                    _vm._v("Pago al contado")
-                  ])
+              _c("div", { staticClass: "col-4 text-right" }, [
+                _c("a", { attrs: { href: "javascript:window.print()" } }, [
+                  _vm._v("Imprimir")
                 ])
               ])
             ])
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "invoicelist-body" }, [
-        _c("table", [
-          _c("thead", { attrs: { contenteditable: "" } }, [
-            _c("th", { attrs: { width: "5%" } }, [_vm._v("Código")]),
-            _vm._v(" "),
-            _c("th", { attrs: { width: "60%" } }, [_vm._v("Descripción")]),
-            _vm._v(" "),
-            _c("th", { attrs: { width: "10%" } }, [_vm._v("Cant.")]),
-            _vm._v(" "),
-            _c("th", { attrs: { width: "15%" } }, [_vm._v("Precio")]),
-            _vm._v(" "),
-            _c("th", { attrs: { width: "10%" } }, [_vm._v("Total")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row section" }, [
+          _c("div", { staticClass: "col-2" }, [
+            _c("h1", { attrs: { contenteditable: "" } }, [_vm._v("Factura")])
           ]),
           _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", { attrs: { width: "5%" } }, [
-                _c(
-                  "a",
-                  { staticClass: "control removeRow", attrs: { href: "#" } },
-                  [_vm._v("x")]
-                ),
-                _vm._v(" "),
-                _c("span", { attrs: { contenteditable: "" } }, [
-                  _vm._v("12345")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("td", { attrs: { width: "60%" } }, [
-                _c("span", { attrs: { contenteditable: "" } }, [
-                  _vm._v("Descripción")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "amount" }, [
-                _c("input", { attrs: { type: "text", value: "1" } })
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "rate" }, [
-                _c("input", { attrs: { type: "text", value: "99" } })
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "sum" })
+          _c("div", { staticClass: "col-2 text-right details" }, [
+            _c("p", { attrs: { contenteditable: "" } }, [
+              _vm._v("\r\n      Fecha: "),
+              _c("input", {
+                staticClass: "datePicker",
+                attrs: { type: "text" }
+              }),
+              _c("br"),
+              _vm._v("\r\n      Factura #: "),
+              _c("input", { attrs: { type: "text", value: "100" } }),
+              _c("br"),
+              _vm._v("\r\n     Vence: "),
+              _c("input", { staticClass: "twoweeks", attrs: { type: "text" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-2" }, [
+            _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
+              _c("strong", [_vm._v("Facturar a")]),
+              _c("br"),
+              _vm._v("\r\n      [Nombre cliente]"),
+              _c("br"),
+              _vm._v("\r\n      [Nombre emmpresa]"),
+              _c("br"),
+              _vm._v("\r\n\t    [Dirección empresa]"),
+              _c("br"),
+              _vm._v("\r\n\t    [Tel empresa]\r\n    ")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-2" }, [
+            _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
+              _c("strong", [_vm._v("Enviar a")]),
+              _c("br"),
+              _vm._v("\r\n      [Nombre cliente]"),
+              _c("br"),
+              _vm._v("\r\n      [Nombre emmpresa]"),
+              _c("br"),
+              _vm._v("\r\n\t  [Dirección empresa]"),
+              _c("br"),
+              _vm._v("\r\n\t  [Tel empresa]\r\n    ")
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("a", { staticClass: "control newRow", attrs: { href: "#" } }, [
-          _vm._v("+ Nueva fila")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "invoicelist-footer" }, [
-        _c("table", { attrs: { contenteditable: "" } }, [
-          _c("tr", { staticClass: "taxrelated" }, [
-            _c("td", [_vm._v("IVA:")]),
+        _c(
+          "div",
+          {
+            staticClass: "row section",
+            staticStyle: { "margin-top": "-1rem" }
+          },
+          [
+            _c("div", { staticClass: "col-1" }, [
+              _c("table", { staticStyle: { width: "100%" } }, [
+                _c("thead", { attrs: { contenteditable: "" } }, [
+                  _c("tr", { staticClass: "invoice_detail" }, [
+                    _c(
+                      "th",
+                      {
+                        staticStyle: { "text-align": "center" },
+                        attrs: { width: "25%" }
+                      },
+                      [_vm._v("Vendedor")]
+                    ),
+                    _vm._v(" "),
+                    _c("th", { attrs: { width: "25%" } }, [
+                      _vm._v("Orden de compra ")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { width: "20%" } }, [
+                      _vm._v("Enviar por")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { width: "30%" } }, [
+                      _vm._v("Términos y condiciones")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", { attrs: { contenteditable: "" } }, [
+                  _c("tr", { staticClass: "invoice_detail" }, [
+                    _c(
+                      "td",
+                      {
+                        staticStyle: { "text-align": "center" },
+                        attrs: { width: "25%" }
+                      },
+                      [_vm._v("John Doe")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "25%" } }, [
+                      _vm._v("#PO-2020 ")
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "20%" } }, [_vm._v("DHL")]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { width: "30%" } }, [
+                      _vm._v("Pago al contado")
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "invoicelist-body" }, [
+          _c("table", [
+            _c("thead", { attrs: { contenteditable: "" } }, [
+              _c("th", { attrs: { width: "5%" } }, [_vm._v("Código")]),
+              _vm._v(" "),
+              _c("th", { attrs: { width: "60%" } }, [_vm._v("Descripción")]),
+              _vm._v(" "),
+              _c("th", { attrs: { width: "10%" } }, [_vm._v("Cant.")]),
+              _vm._v(" "),
+              _c("th", { attrs: { width: "15%" } }, [_vm._v("Precio")]),
+              _vm._v(" "),
+              _c("th", { attrs: { width: "10%" } }, [_vm._v("Total")])
+            ]),
             _vm._v(" "),
-            _c("td", { attrs: { id: "total_tax" } })
+            _c("tbody", [
+              _c("tr", [
+                _c("td", { attrs: { width: "5%" } }, [
+                  _c(
+                    "a",
+                    { staticClass: "control removeRow", attrs: { href: "#" } },
+                    [_vm._v("x")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { attrs: { contenteditable: "" } }, [
+                    _vm._v("12345")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { width: "60%" } }, [
+                  _c("span", { attrs: { contenteditable: "" } }, [
+                    _vm._v("Descripción")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "amount" }, [
+                  _c("input", { attrs: { type: "text", value: "1" } })
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "rate" }, [
+                  _c("input", { attrs: { type: "text", value: "99" } })
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "sum" })
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c("tr", [
-            _c("td", [_c("strong", [_vm._v("Total:")])]),
-            _vm._v(" "),
-            _c("td", { attrs: { id: "total_price" } })
+          _c("a", { staticClass: "control newRow", attrs: { href: "#" } }, [
+            _vm._v("+ Nueva fila")
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "note", attrs: { contenteditable: "" } }, [
-        _c("h2", [_vm._v("Nota:")])
-      ]),
-      _vm._v(" "),
-      _c("footer", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-1 text-center" }, [
-          _c(
-            "p",
-            { staticClass: "notaxrelated", attrs: { contenteditable: "" } },
-            [
-              _vm._v(
-                "El monto de la factura no incluye el impuesto sobre las ventas."
-              )
-            ]
-          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "invoicelist-footer" }, [
+          _c("table", { attrs: { contenteditable: "" } }, [
+            _c("tr", { staticClass: "taxrelated" }, [
+              _c("td", [_vm._v("IVA:")]),
+              _vm._v(" "),
+              _c("td", { attrs: { id: "total_tax" } })
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_c("strong", [_vm._v("Total:")])]),
+              _vm._v(" "),
+              _c("td", { attrs: { id: "total_price" } })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "note", attrs: { contenteditable: "" } }, [
+          _c("h2", [_vm._v("Nota:")])
+        ]),
+        _vm._v(" "),
+        _c("footer", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-1 text-center" }, [
+            _c(
+              "p",
+              { staticClass: "notaxrelated", attrs: { contenteditable: "" } },
+              [
+                _vm._v(
+                  "El monto de la factura no incluye el impuesto sobre las ventas."
+                )
+              ]
+            )
+          ])
         ])
       ])
     ])
@@ -88267,7 +88400,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_d09b539a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=d09b539a& */ "./resources/js/components/views/sales/index.vue?vue&type=template&id=d09b539a&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/views/sales/index.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88275,7 +88410,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _index_vue_vue_type_template_id_d09b539a___WEBPACK_IMPORTED_MODULE_0__["render"],
   _index_vue_vue_type_template_id_d09b539a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -88304,6 +88439,22 @@ component.options.__file = "resources/js/components/views/sales/index.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/sales/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
