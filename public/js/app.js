@@ -7532,54 +7532,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -12320,7 +12272,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n /*! normalize.css v3.0.2 | MIT License | git.io/normalize */\n.html-formulario {\n    font-family: sans-serif;\n    -ms-text-size-adjust: 100%;\n    -webkit-text-size-adjust: 100%\n}\n.body-formularo {\n    margin: 0\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n    display: block\n}\naudio,\ncanvas,\nprogress,\nvideo {\n    display: inline-block;\n    vertical-align: baseline\n}\naudio:not([controls]) {\n    display: none;\n    height: 0\n}\n[hidden],\ntemplate {\n    display: none\n}\na {\n    background-color: transparent\n}\na:active,\na:hover {\n    outline: 0\n}\nabbr[title] {\n    border-bottom: 1px dotted\n}\nb,\nstrong {\n    font-weight: bold\n}\ndfn {\n    font-style: italic\n}\nh1 {\n    font-size: 2em;\n    margin: 0.67em 0\n}\nmark {\n    background: #ff0;\n    color: #000\n}\nsmall {\n    font-size: 80%\n}\nsub,\nsup {\n    font-size: 75%;\n    line-height: 0;\n    position: relative;\n    vertical-align: baseline\n}\nsup {\n    top: -0.5em\n}\nsub {\n    bottom: -0.25em\n}\nimg {\n    border: 0\n}\nsvg:not(:root) {\n    overflow: hidden\n}\nfigure {\n    margin: 1em 40px\n}\nhr {\n    box-sizing: content-box;\n    height: 0\n}\npre {\n    overflow: auto\n}\ncode,\nkbd,\npre,\nsamp {\n    font-family: monospace, monospace;\n    font-size: 1em\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n    color: inherit;\n    font: inherit;\n    margin: 0\n}\nbutton {\n    overflow: visible\n}\nbutton,\nselect {\n    text-transform: none\n}\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n    -webkit-appearance: button;\n    cursor: pointer\n}\nbutton[disabled],\n.html-formulario input[disabled] {\n    cursor: default\n}\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n    border: 0;\n    padding: 0\n}\ninput {\n    line-height: normal\n}\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n    box-sizing: border-box;\n    padding: 0\n}\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n    height: auto\n}\ninput[type=\"search\"] {\n    -webkit-appearance: textfield;\n    box-sizing: content-box\n}\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n    -webkit-appearance: none\n}\nfieldset {\n    border: 1px solid #c0c0c0;\n    margin: 0 2px;\n    padding: 0.35em 0.625em 0.75em\n}\nlegend {\n    border: 0;\n    padding: 0\n}\ntextarea {\n    overflow: auto\n}\noptgroup {\n    font-weight: bold\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0\n}\ntd,\nth {\n    padding: 0\n}\n.html-formulario {\n    font-size: 12px;\n    line-height: 1.5;\n    color: #000;\n    background: #ddd;\n    box-sizing: border-box\n}\n.body-formulario {\n    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    margin: 6rem auto 0;\n    max-width: 800px;\n    background: white;\n    border: 1px solid #aaa;\n    padding: 2rem\n}\n.container {\n    max-width: 800px;\n    margin-left: auto;\n    margin-right: auto;\n    padding-left: 1rem;\n    padding-right: 1rem\n}\n*,\n*:before,\n*:after {\n    box-sizing: inherit\n}\n[contenteditable]:hover,\n[contenteditable]:focus,\ninput:hover,\ninput:focus {\n    background: rgba(241, 76, 76, 0.1);\n    outline: 1px solid #009688\n}\n.group:after,\n.row:after,\n.invoicelist-footer:after {\n    content: \"\";\n    display: table;\n    clear: both\n}\na {\n    color: #009688;\n    text-decoration: none\n}\np {\n    margin: 0\n}\n.row {\n    position: relative;\n    display: block;\n    width: 100%;\n    font-size: 0\n}\n.col,\n.logoholder,\n.me,\n.info,\n.bank,\n[class*=\"col-\"] {\n    vertical-align: top;\n    display: inline-block;\n    font-size: 1rem;\n    padding: 0 1rem;\n    min-height: 1px\n}\n.col-4 {\n    width: 25%\n}\n.col-3 {\n    width: 33.33%\n}\n.col-2 {\n    width: 50%\n}\n.col-2-4 {\n    width: 75%\n}\n.col-1 {\n    width: 100%\n}\n.text-center {\n    text-align: center\n}\n.text-right {\n    text-align: right\n}\n.control-bar {\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    z-index: 100;\n    background: #009688;\n    color: white;\n    line-height: 4rem;\n    height: 4rem\n}\n.control-bar .slogan {\n    font-weight: bold;\n    font-size: 1.2rem;\n    display: inline-block;\n    margin-right: 2rem\n}\n.control-bar label {\n    margin-right: 1rem\n}\n.control-bar a {\n    margin: 0;\n    padding: .5em 1em;\n    background: rgba(255, 255, 255, 0.8)\n}\n.control-bar a:hover {\n    background: #fff\n}\n.control-bar input {\n    border: none;\n    background: rgba(255, 255, 255, 0.2);\n    padding: .5rem 0;\n    max-width: 30px;\n    text-align: center\n}\n.control-bar input:hover {\n    background: rgba(255, 255, 255, 0.3)\n}\n.hidetax .taxrelated {\n    display: none\n}\n.showtax .notaxrelated {\n    display: none\n}\n.hidedate .daterelated {\n    display: none\n}\n.showdate .notdaterelated {\n    display: none\n}\nheader {\n    margin: 1rem 0 0;\n    padding: 0 0 2rem 0;\n    border-bottom: 3pt solid #009688\n}\nheader p {\n    font-size: .9rem\n}\nheader a {\n    color: #000\n}\n.logo {\n    margin: 0 auto;\n    width: auto;\n    height: auto;\n    border: none;\n    fill: #009688\n}\n.logoholder {\n    width: 14%\n}\n.me {\n    width: 30%\n}\n.info {\n    width: 30%\n}\n.bank {\n    width: 26%\n}\n.section {\n    margin: 2rem 0 0\n}\n.smallme {\n    display: inline-block;\n    text-transform: uppercase;\n    margin: 0 0 2rem 0;\n    font-size: .9rem\n}\n.client {\n    margin: 0 0 3rem 0\n}\nh1 {\n    margin: 0;\n    padding: 0;\n    font-size: 2rem;\n    color: #009688\n}\n.details input {\n    display: inline;\n    margin: 0 0 0 .5rem;\n    border: none;\n    width: 50px;\n    min-width: 0;\n    background: transparent;\n    text-align: left\n}\n.invoice_detail{\n\tborder: solid 1px #009688;\n\tpadding:10px;\n\theight:25px;\n\ttext-align:center\n}\n.rate:before,\n.price:before,\n.sum:before,\n.tax:before,\n#total_price:before,\n#total_tax:before {\n    content: '$'\n}\n.invoicelist-body {\n    margin: 1rem\n}\n.invoicelist-body table {\n    width: 100%\n}\n.invoicelist-body thead {\n    text-align: left;\n    border-bottom: 1pt solid #666\n}\n.invoicelist-body td,\n.invoicelist-body th {\n    position: relative;\n    padding: 1rem\n}\n.invoicelist-body tr:nth-child(even) {\n    background: #ccc\n}\n.invoicelist-body tr:hover .removeRow {\n    display: block\n}\n.invoicelist-body input {\n    display: inline;\n    margin: 0;\n    border: none;\n    width: 80%;\n    min-width: 0;\n    background: transparent;\n    text-align: left\n}\n.invoicelist-body .control {\n    display: inline-block;\n    color: white;\n    background: #009688;\n    padding: 3px 7px;\n    font-size: .9rem;\n    text-transform: uppercase;\n    cursor: pointer\n}\n.invoicelist-body .control:hover {\n    background: #f36464\n}\n.invoicelist-body .newRow {\n    margin: .5rem 0;\n    float: left\n}\n.invoicelist-body .removeRow {\n    display: none;\n    position: absolute;\n    top: .1rem;\n    bottom: .1rem;\n    left: -1.3rem;\n    font-size: .7rem;\n    border-radius: 3px 0 0 3px;\n    padding: .5rem\n}\n.invoicelist-footer {\n    margin: 1rem\n}\n.invoicelist-footer table {\n    float: right;\n    width: 25%\n}\n.invoicelist-footer table td {\n    padding: 1rem 2rem 0 1rem;\n    text-align: right\n}\n.invoicelist-footer table tr:nth-child(2) td {\n    padding-top: 0\n}\n.invoicelist-footer table #total_price {\n    font-size: 2rem;\n    color: #009688\n}\n.note {\n    margin: 1rem\n}\n.hidenote .note {\n    display: none\n}\n.note h2 {\n    margin: 0;\n    font-size: 1rem;\n    font-weight: bold\n}\nfooter {\n    display: block;\n    margin: 1rem 0;\n    padding: 1rem 0 0\n}\nfooter p {\n    font-size: .8rem\n}\n@media print {\n.html-formulario {\n        margin: 0;\n        padding: 0;\n        background: #fff\n}\n.body-formulario {\n        width: 100%;\n        border: none;\n        background: #fff;\n        color: #000;\n        margin: 0;\n        padding: 0\n}\n.control,\n    .control-bar {\n        display: none !important\n}\n[contenteditable]:hover,\n    [contenteditable]:focus {\n        outline: none\n}\n}\n\n\n\n", ""]);
+exports.push([module.i, "\n.formulario {\r\n    margin: 1rem auto 0;\r\n    max-width: 1100px;\r\n    background: white;\r\n    border: 1px solid rgb(19, 18, 18);\r\n    padding: 1rem;\r\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\r\n    border-radius: 15px;\n}\n.title-form{\r\n    text-align: center;\r\n    font-weight: bold;\n}\nhr{\r\n    background: rgb(123, 190, 157);\n}\n.label-form{\r\n    font-weight: bold;\n}\n.title-form-group{\r\n    font-weight: bold;\n}\n.form-group{\r\n    display: inline-flex;\n}\n.vertical-line{\r\n    border-right: 2px solid rgb(123, 190, 157);\r\n    padding-right: 90px;\r\n    height: 70px;\n}\n.vertical-line-content::before{\r\n    content: '\\A';\r\n    white-space: pre;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -70663,260 +70615,382 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "body-formulario" }, [
+    _c("div", { staticClass: "formulario" }, [
+      _c("h4", { staticClass: "title-form" }, [_vm._v("Facturación")]),
+      _vm._v(" "),
+      _c("form", { attrs: { action: "#" } }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "label",
+                { staticClass: "label-form", attrs: { for: "vendedor" } },
+                [_vm._v("Vendedor: ")]
+              ),
+              _vm._v(
+                "\n                      " +
+                  _vm._s(this.$store.state.user.name) +
+                  "                                                                                                      \n                  "
+              )
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("h5", { staticClass: "title-form-group" }, [_vm._v("Cliente")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "label-form", attrs: { for: "cedula" } },
+                [_vm._v("Cédula/RUC: ")]
+              ),
+              _vm._v("  \n                      "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "cedula",
+                  id: "cedula",
+                  size: "30",
+                  pattern: "[0-9]+",
+                  required: ""
+                }
+              }),
+              _vm._v("\n                       "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success btn-form",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    title: "Confirmar Cédula"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.checkClient()
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-check-circle" })]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                          Ingrese un número de cédula\n                      "
+                )
+              ])
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "label-form", attrs: { for: "phone" } },
+                [_vm._v("Teléfono: ")]
+              ),
+              _vm._v(" \n                      "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "phone",
+                  id: "phone",
+                  size: "35",
+                  pattern: "[0-9]+",
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                          Ingrese una teléfono\n                      "
+                )
+              ]),
+              _vm._v("     \n\n                      "),
+              _c(
+                "label",
+                { staticClass: "label-form", attrs: { for: "email" } },
+                [_vm._v("Email: ")]
+              ),
+              _vm._v(" \n                      "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "email",
+                  id: "email",
+                  size: "40",
+                  required: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                          Ingrese una e-mail\n                      "
+                )
+              ]),
+              _vm._v("     \n\n                      "),
+              _c(
+                "label",
+                { staticClass: "label-form", attrs: { for: "date" } },
+                [_vm._v("Fecha: ")]
+              ),
+              _vm._v(" \n                      "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.date,
+                    expression: "date"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "date",
+                  name: "date",
+                  id: "date",
+                  size: "35",
+                  required: ""
+                },
+                domProps: { value: _vm.date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.date = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("hr")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group vertical-line" }, [
+              _c("h5", { staticClass: "title-form-group" }, [_vm._v("Venta")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vertical-line-content" }, [
+                _c(
+                  "label",
+                  { staticClass: "label-form", attrs: { for: "pagos" } },
+                  [_vm._v("Métodos de pago: ")]
+                ),
+                _vm._v(" \n                          "),
+                _c("label", { attrs: { for: "cash" } }, [_vm._v("Efectivo")]),
+                _vm._v("  \n                          "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.payment,
+                      expression: "payment"
+                    }
+                  ],
+                  attrs: {
+                    type: "radio",
+                    disabled: _vm.tableActive,
+                    name: "payment_type",
+                    value: "cash",
+                    id: "cash",
+                    required: ""
+                  },
+                  domProps: { checked: _vm._q(_vm.payment, "cash") },
+                  on: {
+                    change: function($event) {
+                      _vm.payment = "cash"
+                    }
+                  }
+                }),
+                _vm._v(
+                  "  \n                          \n                          "
+                ),
+                _c("label", { attrs: { for: "promo" } }, [_vm._v("Promoción")]),
+                _vm._v("  \n                          "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.payment,
+                      expression: "payment"
+                    }
+                  ],
+                  attrs: {
+                    type: "radio",
+                    disabled: _vm.tableActive,
+                    name: "payment_type",
+                    value: "promo",
+                    id: "promo",
+                    required: ""
+                  },
+                  domProps: { checked: _vm._q(_vm.payment, "promo") },
+                  on: {
+                    change: function($event) {
+                      _vm.payment = "promo"
+                    }
+                  }
+                }),
+                _vm._v("  \n\n                          "),
+                _c("label", { attrs: { for: "credit" } }, [_vm._v("Crédito")]),
+                _vm._v("  \n                          "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.payment,
+                      expression: "payment"
+                    }
+                  ],
+                  attrs: {
+                    type: "radio",
+                    disabled: _vm.tableActive,
+                    name: "payment_type",
+                    value: "credit",
+                    id: "credit",
+                    required: ""
+                  },
+                  domProps: { checked: _vm._q(_vm.payment, "credit") },
+                  on: {
+                    change: function($event) {
+                      _vm.payment = "credit"
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("h5", { staticClass: "title-form-group" }, [
+                _vm._v("Productos")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "vertical-line-content" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Agregar")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "number", disabled: !_vm.payment }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "label-form", attrs: { for: "cantidad" } },
+                  [_vm._v("Cantidad: ")]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr")
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "html-formulario" }, [
-      _c("div", { staticClass: "body-formulario" }, [
-        _c("div", { staticClass: "control-bar" }, [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-2-4" }, [
-                _c("div", { staticClass: "slogan" }, [_vm._v("Facturación ")]),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "config_tax" } }, [
-                  _vm._v("IVA:\r\n          "),
-                  _c("input", { attrs: { type: "checkbox", id: "config_tax" } })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "taxrelated",
-                    attrs: { for: "config_tax_rate" }
-                  },
-                  [
-                    _vm._v("Tasa:\r\n          "),
-                    _c("input", {
-                      attrs: {
-                        type: "text",
-                        id: "config_tax_rate",
-                        value: "13"
-                      }
-                    }),
-                    _vm._v("%\r\n        ")
-                  ]
-                ),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "config_note" } }, [
-                  _vm._v("Nota:\r\n          "),
-                  _c("input", {
-                    attrs: { type: "checkbox", id: "config_note" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4 text-right" }, [
-                _c("a", { attrs: { href: "javascript:window.print()" } }, [
-                  _vm._v("Imprimir")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row section" }, [
-          _c("div", { staticClass: "col-2" }, [
-            _c("h1", { attrs: { contenteditable: "" } }, [_vm._v("Factura")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2 text-right details" }, [
-            _c("p", { attrs: { contenteditable: "" } }, [
-              _vm._v("\r\n      Fecha: "),
-              _c("input", {
-                staticClass: "datePicker",
-                attrs: { type: "text" }
-              }),
-              _c("br"),
-              _vm._v("\r\n      Factura #: "),
-              _c("input", { attrs: { type: "text", value: "100" } }),
-              _c("br"),
-              _vm._v("\r\n     Vence: "),
-              _c("input", { staticClass: "twoweeks", attrs: { type: "text" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2" }, [
-            _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
-              _c("strong", [_vm._v("Facturar a")]),
-              _c("br"),
-              _vm._v("\r\n      [Nombre cliente]"),
-              _c("br"),
-              _vm._v("\r\n      [Nombre emmpresa]"),
-              _c("br"),
-              _vm._v("\r\n\t    [Dirección empresa]"),
-              _c("br"),
-              _vm._v("\r\n\t    [Tel empresa]\r\n    ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2" }, [
-            _c("p", { staticClass: "client", attrs: { contenteditable: "" } }, [
-              _c("strong", [_vm._v("Enviar a")]),
-              _c("br"),
-              _vm._v("\r\n      [Nombre cliente]"),
-              _c("br"),
-              _vm._v("\r\n      [Nombre emmpresa]"),
-              _c("br"),
-              _vm._v("\r\n\t  [Dirección empresa]"),
-              _c("br"),
-              _vm._v("\r\n\t  [Tel empresa]\r\n    ")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "row section",
-            staticStyle: { "margin-top": "-1rem" }
-          },
-          [
-            _c("div", { staticClass: "col-1" }, [
-              _c("table", { staticStyle: { width: "100%" } }, [
-                _c("thead", { attrs: { contenteditable: "" } }, [
-                  _c("tr", { staticClass: "invoice_detail" }, [
-                    _c(
-                      "th",
-                      {
-                        staticStyle: { "text-align": "center" },
-                        attrs: { width: "25%" }
-                      },
-                      [_vm._v("Vendedor")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", { attrs: { width: "25%" } }, [
-                      _vm._v("Orden de compra ")
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { width: "20%" } }, [
-                      _vm._v("Enviar por")
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { width: "30%" } }, [
-                      _vm._v("Términos y condiciones")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tbody", { attrs: { contenteditable: "" } }, [
-                  _c("tr", { staticClass: "invoice_detail" }, [
-                    _c(
-                      "td",
-                      {
-                        staticStyle: { "text-align": "center" },
-                        attrs: { width: "25%" }
-                      },
-                      [_vm._v("John Doe")]
-                    ),
-                    _vm._v(" "),
-                    _c("td", { attrs: { width: "25%" } }, [
-                      _vm._v("#PO-2020 ")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { width: "20%" } }, [_vm._v("DHL")]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { width: "30%" } }, [
-                      _vm._v("Pago al contado")
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "invoicelist-body" }, [
-          _c("table", [
-            _c("thead", { attrs: { contenteditable: "" } }, [
-              _c("th", { attrs: { width: "5%" } }, [_vm._v("Código")]),
-              _vm._v(" "),
-              _c("th", { attrs: { width: "60%" } }, [_vm._v("Descripción")]),
-              _vm._v(" "),
-              _c("th", { attrs: { width: "10%" } }, [_vm._v("Cant.")]),
-              _vm._v(" "),
-              _c("th", { attrs: { width: "15%" } }, [_vm._v("Precio")]),
-              _vm._v(" "),
-              _c("th", { attrs: { width: "10%" } }, [_vm._v("Total")])
-            ]),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", { attrs: { width: "5%" } }, [
-                  _c(
-                    "a",
-                    { staticClass: "control removeRow", attrs: { href: "#" } },
-                    [_vm._v("x")]
-                  ),
-                  _vm._v(" "),
-                  _c("span", { attrs: { contenteditable: "" } }, [
-                    _vm._v("12345")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { width: "60%" } }, [
-                  _c("span", { attrs: { contenteditable: "" } }, [
-                    _vm._v("Descripción")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "amount" }, [
-                  _c("input", { attrs: { type: "text", value: "1" } })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "rate" }, [
-                  _c("input", { attrs: { type: "text", value: "99" } })
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "sum" })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "control newRow", attrs: { href: "#" } }, [
-            _vm._v("+ Nueva fila")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "invoicelist-footer" }, [
-          _c("table", { attrs: { contenteditable: "" } }, [
-            _c("tr", { staticClass: "taxrelated" }, [
-              _c("td", [_vm._v("IVA:")]),
-              _vm._v(" "),
-              _c("td", { attrs: { id: "total_tax" } })
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_c("strong", [_vm._v("Total:")])]),
-              _vm._v(" "),
-              _c("td", { attrs: { id: "total_price" } })
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "note", attrs: { contenteditable: "" } }, [
-          _c("h2", [_vm._v("Nota:")])
-        ]),
-        _vm._v(" "),
-        _c("footer", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-1 text-center" }, [
-            _c(
-              "p",
-              { staticClass: "notaxrelated", attrs: { contenteditable: "" } },
-              [
-                _vm._v(
-                  "El monto de la factura no incluye el impuesto sobre las ventas."
-                )
-              ]
-            )
-          ])
-        ])
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "label-form", attrs: { for: "name" } }, [
+        _vm._v("Nombres: ")
+      ]),
+      _vm._v(" \n                      "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          name: "name",
+          id: "name",
+          size: "30",
+          pattern: "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s ]+",
+          required: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "invalid-feedback" }, [
+        _vm._v(
+          "\n                          Ingrese los nombres\n                      "
+        )
+      ]),
+      _vm._v("     \n\n                      "),
+      _c("label", { staticClass: "label-form", attrs: { for: "last-name" } }, [
+        _vm._v("Apellidos: ")
+      ]),
+      _vm._v(" \n                      "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          name: "last-name",
+          id: "last-name",
+          size: "30",
+          pattern: "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\s ]+",
+          required: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "invalid-feedback" }, [
+        _vm._v(
+          "\n                          Ingrese los apellidos\n                      "
+        )
+      ]),
+      _vm._v("     \n\n                      "),
+      _c("label", { staticClass: "label-form", attrs: { for: "address" } }, [
+        _vm._v("Dirección: ")
+      ]),
+      _vm._v(" \n                      "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          name: "address",
+          id: "address",
+          size: "30",
+          required: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "invalid-feedback" }, [
+        _vm._v(
+          "\n                          Ingrese una dirección\n                      "
+        )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-danger",
+        attrs: { type: "button", title: "Vaciar tabla" }
+      },
+      [_c("i", { staticClass: "fas fa-trash-alt" })]
+    )
   }
 ]
 render._withStripped = true
