@@ -18,12 +18,12 @@ mounted() {
    let that = this;
     setTimeout(() => {
       that.redirect();
-    }, 200);
+    }, 500);
 },
 methods: {
   redirect(){
       if (this.isAuth) {
-      this.$router.push({name:'users'});
+      this.$router.push({name:'inventory'});
   } else {
       this.$router.push({name:'login'});
   }

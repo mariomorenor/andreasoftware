@@ -6386,13 +6386,13 @@ __webpack_require__.r(__webpack_exports__);
     var that = this;
     setTimeout(function () {
       that.redirect();
-    }, 200);
+    }, 500);
   },
   methods: {
     redirect: function redirect() {
       if (this.isAuth) {
         this.$router.push({
-          name: 'users'
+          name: 'inventory'
         });
       } else {
         this.$router.push({
