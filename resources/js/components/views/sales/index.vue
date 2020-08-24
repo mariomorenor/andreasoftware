@@ -111,7 +111,6 @@ export default {};
 
 <style>
 
-<<<<<<< HEAD
 .formulario {
     margin: 1rem auto 0;
     max-width: 1100px;
@@ -153,7 +152,4 @@ hr{
     content: '\A';
     white-space: pre;
 }
-
-=======
->>>>>>> 6edfb83834cd26c44f0d235ac5f869e6421ab2b0
 </style> 
