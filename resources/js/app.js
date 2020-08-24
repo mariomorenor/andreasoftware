@@ -35,24 +35,17 @@ const store = new Vuex.Store({
         user:''
     },
     mutations:{
-        checkUser(state,response){
-            if (response == 'init') {
-               if (document.head.querySelector('meta[name="user"').content != '') {
+        getUser(state){
+            axios.get('user-authenticated').then(({data})=>{
+                if (data) {
+                    console.log(data)
+                    state.user = data;
                     state.isAuth=true;
-                    state.user = JSON.parse(document.head.querySelector('meta[name="user"').content);
-               }
-               return -1;
-            }
-            if (response == 'logout') {
-                state.isAuth=false;
-                return -1;
-            }
-            if (response.data.username != '') {
-                state.isAuth=true;
-                state.user = response.data;
-                return -1;
-            }
-        }   
+                } else { 
+                    state.isAuth=false;
+                }
+            });
+        }  
     }
 })
 

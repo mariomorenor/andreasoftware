@@ -64,15 +64,23 @@ export default new Router({
             props:true,
             components:require('./components/views/clients/edit.vue')
         },
+        // Rutas Colaboradores
+        {
+            path: '/colaboradores',
+            name:'sellers',
+            components: require('./components/views/sellers/index.vue')
+        },
+        // Rutas Comprobantes
         {
             path: '/comprobantes',
             name:'vouchers',
             components:''
         },
+        // Rutas Perfil de Usuario
         {
-            path: '/usuarios',
+            path: '/perfil_de_usuario',
             name:'users',
-            components:''
+            components:require('./components/views/userProfile/index.vue')
         },
     ],
     mode: 'history'

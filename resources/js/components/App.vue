@@ -14,11 +14,19 @@
 export default {
   
 mounted() {
-   this.$store.commit('checkUser','init');
-  if (this.isAuth) {
-      this.$router.push({name:'banks'});
+   this.$store.commit('getUser');
+   let that = this;
+    setTimeout(() => {
+      that.redirect();
+    }, 200);
+},
+methods: {
+  redirect(){
+      if (this.isAuth) {
+      this.$router.push({name:'users'});
   } else {
       this.$router.push({name:'login'});
+  }
   }
 },
 computed: {
