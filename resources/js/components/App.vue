@@ -16,7 +16,7 @@ export default {
 mounted() {
    this.$store.commit('checkUser','init');
   if (this.isAuth) {
-      this.$router.push({name:'inventory'});
+      this.$router.push({name:'banks'});
   } else {
       this.$router.push({name:'login'});
   }

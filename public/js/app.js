@@ -6386,7 +6386,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.isAuth) {
       this.$router.push({
-        name: 'inventory'
+        name: 'banks'
       });
     } else {
       this.$router.push({
@@ -6525,17 +6525,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       since: '',
       until: '',
-      quantity: ''
+      quantity: '',
+      dateNewIncome: '',
+      quantityIncome: 0,
+      timeNewIncome: '',
+      totalPages: '',
+      pageNumber: '',
+      pageSize: ''
     };
   },
   beforeMount: function beforeMount() {
     this.since = moment(moment().date(1)).format('Y-MM-DD');
     this.until = this.today;
+    this.dateNewIncome = moment().format('Y-MM-DD');
+    this.timeNewIncome = moment().format('LT');
   },
   mounted: function mounted() {
     this.init();
@@ -6544,11 +6597,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     screenSize: function screenSize() {
       if (window.innerWidth <= 1366) {
-        $('#tableInventario').bootstrapTable('resetView', {
+        $('#tableBanks').bootstrapTable('resetView', {
           height: 450
         });
       } else if (window.innerWidth > 1366 && window.innerWidth <= 1920) {
-        $('#tableInventario').bootstrapTable('resetView', {
+        $('#tableBanks').bootstrapTable('resetView', {
           height: 700
         });
       }
@@ -6580,16 +6633,47 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addIncome: function addIncome() {
-      var that = this;
-      axios.post('/incomes', {
-        user_id: that.$store.state.user.id,
-        quantity: 3,
-        date: moment().format("YYYY-MM-DD"),
-        time: moment().format("hh:mm:ss")
-      }).then(function (_ref) {
-        var data = _ref.data;
-        console.log(data);
-      });
+      var _this = this;
+
+      if (this.quantityIncome <= 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'La cantidad no puede ser menor o igual a 0',
+          timer: 1500
+        });
+      } else {
+        axios.post('/incomes', {
+          user_id: this.$store.state.user.id,
+          quantity: this.quantityIncome,
+          date: this.dateNewIncome,
+          time: this.timeNewIncome
+        }).then(function (data) {
+          if (data.status == 200) {
+            _this.resetModalNewIncome();
+
+            $('#tableBanks').bootstrapTable('refresh');
+            Swal.fire({
+              icon: 'success',
+              title: 'La operación se realizó Correctamente!',
+              timer: 1500
+            });
+          }
+        });
+      }
+    },
+    resetModalNewIncome: function resetModalNewIncome() {
+      $('#modalAddIncome').modal('hide');
+      this.dateNewIncome = moment().format('Y-MM-DD');
+      this.quantityIncome = 0;
+      this.timeNewIncome = moment().format('LT');
+    },
+    downloadPDF: function downloadPDF() {
+      this.totalPages = $('#tableBanks').bootstrapTable('getOptions').totalPages, this.pageNumber = $('#tableBanks').bootstrapTable('getOptions').pageNumber;
+      this.pageSize = $('#tableBanks').bootstrapTable('getOptions').pageSize;
+      setTimeout(function () {
+        $('#formPDF')[0].submit(function (e) {});
+      }, 500);
     }
   },
   computed: {
@@ -12122,7 +12206,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media screen and (min-width: 1367px){\n#MainBanks{\r\n    margin-top: 3rem;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-info{\r\n    color: #fff;\r\nbackground-color: #17a2b8;\r\nborder-color: #17a2b8;\n}\n.btn-info:hover{\r\nbackground-color: #2a717c;\r\nborder-color: #2a717c;\n}\n@media screen and (min-width: 1367px){\n#MainBanks{\r\n    margin-top: 3rem;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -12267,17 +12351,9 @@ exports.push([module.i, "\n.containerProducto{\r\n  width: 50rem;\r\n  backgroun
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css& ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.formulario {\r\n    margin: 1rem auto 0;\r\n    max-width: 1100px;\r\n    background: white;\r\n    border: 1px solid rgb(19, 18, 18);\r\n    padding: 1rem;\r\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\r\n    border-radius: 15px;\n}\n.title-form{\r\n    text-align: center;\r\n    font-weight: bold;\n}\nhr{\r\n    background: rgb(123, 190, 157);\n}\n.label-form{\r\n    font-weight: bold;\n}\n.title-form-group{\r\n    font-weight: bold;\n}\n.form-group{\r\n    display: inline-flex;\n}\n.vertical-line{\r\n    border-right: 2px solid rgb(123, 190, 157);\r\n    padding-right: 90px;\r\n    height: 70px;\n}\n.vertical-line-content::before{\r\n    content: '\\A';\r\n    white-space: pre;\n}\r\n\r\n", ""]);
-
-// exports
-
+throw new Error("Module build failed (from ./node_modules/postcss-loader/src/index.js):\nSyntaxError\n\n(157:1) Unknown word\n\n \u001b[90m 155 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 156 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 157 | \u001b[39m=======\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 158 | \u001b[39m>>>>>>> 6edfb83834cd26c44f0d235ac5f869e6421ab2b0\n \u001b[90m 159 | \u001b[39m\n");
 
 /***/ }),
 
@@ -69037,7 +69113,7 @@ var render = function() {
         _c(
           "button",
           {
-            staticClass: "btn btn-success ml-3",
+            staticClass: "btn btn-info ml-3",
             attrs: {
               type: "button",
               disabled: _vm.since == "" || _vm.until == "" ? true : false
@@ -69052,10 +69128,212 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "inline-block",
+          attrs: {
+            action: "/report-download/banks",
+            id: "formPDF",
+            method: "get"
+          }
+        },
+        [
+          _c("input", {
+            attrs: { type: "hidden", name: "format", value: "PDF" }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "totalPages" },
+            domProps: { value: _vm.totalPages }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "pageNumber" },
+            domProps: { value: _vm.pageNumber }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "pageSize" },
+            domProps: { value: _vm.pageSize }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger ml-5",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.downloadPDF()
+                }
+              }
+            },
+            [_vm._v("PDF")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(1)
     ]),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(2),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalAddIncome",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "px-4 col-8 mx-auto" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "dateNewIncome" } }, [
+                      _vm._v("Fecha:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.dateNewIncome,
+                          expression: "dateNewIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "date",
+                        name: "dateNewIncome",
+                        max: _vm.dateNewIncome,
+                        id: "dateNewIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.dateNewIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.dateNewIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "quantity" } }, [
+                      _vm._v("Cantidad $:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.quantityIncome,
+                          expression: "quantityIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        name: "quantityIncome",
+                        id: "quantityIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.quantityIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.quantityIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "timeNewIncome" } }, [
+                      _vm._v("Hora:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.timeNewIncome,
+                          expression: "timeNewIncome"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "time",
+                        name: "timeNewIncome",
+                        id: "timeNewIncome",
+                        required: ""
+                      },
+                      domProps: { value: _vm.timeNewIncome },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.timeNewIncome = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cancelar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success shadow-lg",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.addIncome()
+                      }
+                    }
+                  },
+                  [_vm._v("Agregar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -69066,10 +69344,41 @@ var staticRenderFns = [
     return _c("div", { staticClass: "form-group" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        {
+          staticClass: "btn btn-primary ml-3",
+          attrs: {
+            type: "button",
+            "data-toggle": "modal",
+            "data-backdrop": "static",
+            "data-target": "#modalAddIncome"
+          }
+        },
         [_vm._v("Agregar Depósito")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "form",
+      {
+        staticClass: "inline-block",
+        attrs: { action: "/report-download/banks", method: "get" }
+      },
+      [
+        _c("input", {
+          attrs: { type: "hidden", name: "format", value: "EXCEL" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-success ml-1", attrs: { type: "submit" } },
+          [_vm._v("EXCEL")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -69081,6 +69390,7 @@ var staticRenderFns = [
         attrs: {
           id: "tableBanks",
           "data-toolbar": "#toolbarTableBank",
+          "data-page-list": "[10,25,50,100,all]",
           "data-pagination": "true",
           "data-search": "true"
         }
@@ -69130,6 +69440,31 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Nuevo Depósito")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
   }
 ]
 render._withStripped = true

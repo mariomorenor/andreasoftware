@@ -1,5 +1,4 @@
 
-
 //Inventario
 function eventsFormatter(value, row){
     return '<button class="btn btn-success editButtonProduct mr-2"><i class="fas fa-edit"></i></button>'+
@@ -40,7 +39,8 @@ function banksUserFormatter(value, row) {
 }
 
 function banksDateFormatter(value, row) {
-    return moment(value).format('LL')+' - '+ row.time;
+    console.log(row.time)
+    return moment(value).format('LL')+' - '+ row.time.substring(0,5);
 }
 
 function banksQuantityFormatter(value) {
