@@ -7532,6 +7532,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -70629,9 +70631,9 @@ var render = function() {
                 [_vm._v("Vendedor: ")]
               ),
               _vm._v(
-                "\n                      " +
+                "\n                        " +
                   _vm._s(this.$store.state.user.name) +
-                  "                                                                                                      \n                  "
+                  "                                                                                                      \n                    "
               )
             ]),
             _vm._v(" "),
@@ -70645,7 +70647,7 @@ var render = function() {
                 { staticClass: "label-form", attrs: { for: "cedula" } },
                 [_vm._v("Cédula/RUC: ")]
               ),
-              _vm._v("  \n                      "),
+              _vm._v("  \n                        "),
               _c("input", {
                 staticClass: "form-control",
                 attrs: {
@@ -70657,7 +70659,7 @@ var render = function() {
                   required: ""
                 }
               }),
-              _vm._v("\n                       "),
+              _vm._v("\n                         "),
               _c(
                 "button",
                 {
@@ -70679,7 +70681,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(
-                  "\n                          Ingrese un número de cédula\n                      "
+                  "\n                            Ingrese un número de cédula\n                        "
                 )
               ])
             ]),
@@ -70693,7 +70695,7 @@ var render = function() {
                 { staticClass: "label-form", attrs: { for: "phone" } },
                 [_vm._v("Teléfono: ")]
               ),
-              _vm._v(" \n                      "),
+              _vm._v(" \n                        "),
               _c("input", {
                 staticClass: "form-control",
                 attrs: {
@@ -70708,16 +70710,16 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(
-                  "\n                          Ingrese una teléfono\n                      "
+                  "\n                            Ingrese una teléfono\n                        "
                 )
               ]),
-              _vm._v("     \n\n                      "),
+              _vm._v("     \n\n                        "),
               _c(
                 "label",
                 { staticClass: "label-form", attrs: { for: "email" } },
                 [_vm._v("Email: ")]
               ),
-              _vm._v(" \n                      "),
+              _vm._v(" \n                        "),
               _c("input", {
                 staticClass: "form-control",
                 attrs: {
@@ -70731,16 +70733,16 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(
-                  "\n                          Ingrese una e-mail\n                      "
+                  "\n                            Ingrese una e-mail\n                        "
                 )
               ]),
-              _vm._v("     \n\n                      "),
+              _vm._v("     \n\n                        "),
               _c(
                 "label",
                 { staticClass: "label-form", attrs: { for: "date" } },
                 [_vm._v("Fecha: ")]
               ),
-              _vm._v(" \n                      "),
+              _vm._v(" \n                        "),
               _c("input", {
                 directives: [
                   {
@@ -70785,9 +70787,9 @@ var render = function() {
                   { staticClass: "label-form", attrs: { for: "pagos" } },
                   [_vm._v("Métodos de pago: ")]
                 ),
-                _vm._v(" \n                          "),
+                _vm._v(" \n                            "),
                 _c("label", { attrs: { for: "cash" } }, [_vm._v("Efectivo")]),
-                _vm._v("  \n                          "),
+                _vm._v("  \n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -70813,10 +70815,10 @@ var render = function() {
                   }
                 }),
                 _vm._v(
-                  "  \n                          \n                          "
+                  "  \n                            \n                            "
                 ),
                 _c("label", { attrs: { for: "promo" } }, [_vm._v("Promoción")]),
-                _vm._v("  \n                          "),
+                _vm._v("  \n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -70841,9 +70843,9 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("  \n\n                          "),
+                _vm._v("  \n\n                            "),
                 _c("label", { attrs: { for: "credit" } }, [_vm._v("Crédito")]),
-                _vm._v("  \n                          "),
+                _vm._v("  \n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -70904,7 +70906,8 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v("\n>>>>>>> formulario\n  ")
   ])
 }
 var staticRenderFns = [
@@ -70916,7 +70919,7 @@ var staticRenderFns = [
       _c("label", { staticClass: "label-form", attrs: { for: "name" } }, [
         _vm._v("Nombres: ")
       ]),
-      _vm._v(" \n                      "),
+      _vm._v(" \n                        "),
       _c("input", {
         staticClass: "form-control",
         attrs: {
@@ -70931,14 +70934,14 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "invalid-feedback" }, [
         _vm._v(
-          "\n                          Ingrese los nombres\n                      "
+          "\n                            Ingrese los nombres\n                        "
         )
       ]),
-      _vm._v("     \n\n                      "),
+      _vm._v("     \n\n                        "),
       _c("label", { staticClass: "label-form", attrs: { for: "last-name" } }, [
         _vm._v("Apellidos: ")
       ]),
-      _vm._v(" \n                      "),
+      _vm._v(" \n                        "),
       _c("input", {
         staticClass: "form-control",
         attrs: {
@@ -70953,14 +70956,14 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "invalid-feedback" }, [
         _vm._v(
-          "\n                          Ingrese los apellidos\n                      "
+          "\n                            Ingrese los apellidos\n                        "
         )
       ]),
-      _vm._v("     \n\n                      "),
+      _vm._v("     \n\n                        "),
       _c("label", { staticClass: "label-form", attrs: { for: "address" } }, [
         _vm._v("Dirección: ")
       ]),
-      _vm._v(" \n                      "),
+      _vm._v(" \n                        "),
       _c("input", {
         staticClass: "form-control",
         attrs: {
@@ -70974,7 +70977,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "invalid-feedback" }, [
         _vm._v(
-          "\n                          Ingrese una dirección\n                      "
+          "\n                            Ingrese una dirección\n                        "
         )
       ])
     ])
