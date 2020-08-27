@@ -33,6 +33,12 @@
                   </router-link>
               </div>
               <div class="text-center mx-1">
+                  <router-link class="linkButton" :to="{name:'sellers'}">
+                      <img src="/img/clients/imgClients2.png" style="background:white" class="navbarMenuOption rounded-circle shadow" alt="">
+                      <p class="font-weight-bold">Colaboradores</p>
+                  </router-link>
+              </div>
+              <div class="text-center mx-1">
                   <router-link class="linkButton" :to="{name:'vouchers'}">
                       <img src="/img/vouchers/imgVoucher3.png" class="navbarMenuOption rounded-circle shadow" alt="">
                       <p class="font-weight-bold">Comprobantes</p>
@@ -62,7 +68,7 @@ export default {
     methods: {
         logout(){
             axios.get('/logout').then((response)=>{
-                 this.$store.commit('checkUser','logout');
+                this.$store.commit('getUser');
                 this.$router.push({name:'login'});
             });
         }

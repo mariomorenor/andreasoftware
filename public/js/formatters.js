@@ -39,7 +39,6 @@ function banksUserFormatter(value, row) {
 }
 
 function banksDateFormatter(value, row) {
-    console.log(row.time)
     return moment(value).format('LL')+' - '+ row.time.substring(0,5);
 }
 

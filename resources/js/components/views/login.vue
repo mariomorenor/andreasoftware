@@ -41,7 +41,7 @@ methods: {
       password:this.password
     })
     .then((response)=>{
-      this.$store.commit('checkUser',response);
+      this.$store.commit('getUser');
       this.$router.push({name:'inventory'});
     })
     .catch((error)=>{

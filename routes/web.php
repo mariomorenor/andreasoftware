@@ -31,3 +31,11 @@ Route::get('report-download/{inventory}','ReportController@index');
 
 //Depósitos
 Route::resource('incomes','IncomeController');
+
+// Usuario Perfil
+
+Route::resource('user-profile','UserController')->parameters([
+        'user-profile'=>'user'
+]);
+
+Route::get('user-authenticated','UserController@user');
