@@ -1,4 +1,4 @@
-<template>
+    <template>
   <div class="body-formulario">
     <div class="formulario">
 
@@ -20,9 +20,28 @@
                         &nbsp;<button type="button" @click="checkClient()" data-toggle="tooltip"
                         data-placement="top" title="Confirmar Cédula" class="btn btn-outline-success btn-form">
                         <i class="fas fa-check-circle"></i></button>
+                        <div v-show="userExist">
+                            <router-link class="btn btn-outline-primary ml-1" data-toggle="tooltip"
+                                title="Modificar Usuario" data-placement="top"
+                                :to="{name:'editClient', params:{client}}"><i class="fas fa-edit"></i>
+                            </router-link>
+                        </div>
                         <div class="invalid-feedback">
                             Ingrese un número de cédula
-                        </div>                    
+                        </div>
+
+                        <input type="text" name="cedula" autofocus id="cedula" v-model="ci" autocomplete="off"
+                                      class="form-control" required>
+                                  <button type="button" @click="checkClient()" data-toggle="tooltip"
+                                      data-placement="top" title="Confirmar Cédula"
+                                      class="btn btn-outline-success ml-2"><i class="fas fa-check-circle"></i></button>
+                                  <div v-show="userExist">
+                                      <router-link class="btn btn-outline-primary ml-1" data-toggle="tooltip"
+                                          title="Modificar Usuario" data-placement="top"
+                                          :to="{name:'editClient', params:{client}}"><i class="fas fa-edit"></i>
+                                      </router-link>
+                                  </div>
+
                     </div><br>            
                 
                     <div class="form-group">
@@ -87,13 +106,30 @@
                         <h5 class="title-form-group">Productos</h5>
 
                         <div class="vertical-line-content">
-                            <button type="button" class="btn btn-secondary" >Agregar</button>
-                            <input type="number" :disabled="!payment">
+                            <button type="button" class="btn btn-secondary">Agregar</button>
+                            <input type="text" :disabled="!payment">
                             <label for="cantidad" class="label-form">Cantidad: </label>
+                            <input type="number" min="1" style="width: 50px">
                             <button type="button" class="btn btn-danger" title="Vaciar tabla"><i class="fas fa-trash-alt"></i></button>
                         </div>                        
                     </div>
                     <hr>
+
+                    <table id="tableSale" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">
+                        
+                        <thead class="thead-dark">
+                            <tr>
+                                <th data-field="id" data-visible="false"></th>
+                                <th data-field="acciones" data-width="55" data-formatter="salesAccionesFormatter"></th>
+                                <th data-field="product" data-align="center" data-width="380">Detalle</th>
+                                <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
+                                <th data-field="pvp" data-align="center" data-width="50">Valor Unitario</th>
+                                <th data-field="pvpTotal" data-align="center" data-width="50">Valor Total</th>
+                            </tr>
+                        </thead>
+
+
+                    </table>
                     
                 </div>                
             </div>
@@ -102,9 +138,176 @@
   </div>
 </template>
 
-<script>
+<!--<script>
 export default {};
 
+</script>-->
+
+<script>
+export default {
+
+    data() {
+        return {
+            ci:'',
+            name: '',
+            last_name: '',
+            address: '',
+            phone: '',
+            email: '',
+            date: '',
+            userExist: false,
+            client: '',
+            productList: '',
+            inputProduct: '',
+            productVoucher:'',
+            quantity:1,
+            payment:false,
+            tableActive:false
+
+        }
+    },
+    mounted() {
+        this.init()
+        this.deleteTable();
+    },
+    beforeMount() {
+        this.date = moment().format('YYYY-MM-DD');
+    },
+    methods: {
+        deleteTable(){
+            console.log('a')
+            $('#tableSale').bootstrapTable('removeAll')
+        },
+        init() {
+            $('#tableSale').bootstrapTable({
+                height:'500'
+            });
+        },
+        checkClient() {
+            if (this.ci == '') {
+                Swal.fire('La cédula no puede estar vacía', '','error')
+            } else {
+                  axios.get('/clients/1', {
+                    params: {
+                        cedula: $('#cedula').val()
+                    }
+                })
+                .then(({
+                    data
+                }) => {
+                    if (data) {
+                        this.name = data.name;
+                        this.last_name = data.last_name;
+                        this.address = data.address;
+                        this.phone = data.phone;
+                        this.email = data.email;
+                        this.userExist = true;
+                        this.client = data
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'No existe datos para la cédula ingresada!',
+                            timer: 1000
+                        });
+                        this.name = '';
+                        this.last_name = '';
+                        this.address = '';
+                        this.phone = '';
+                        this.email = '';
+                        this.userExist = false;
+                        this.client = '';
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+            }
+          
+        },
+        getProduct() {
+                axios.get('/products', {
+                        params: {
+                            product: this.inputProduct
+                        }
+                    })
+                    .then(({
+                        data
+                    }) => {
+                        this.productList = data.map(function (product) {
+                            
+                            let new_product = {
+                                name: product.name,
+                                id: product.id,
+                                code: product.code,
+                                cash:product.prices.cash,
+                                promo: product.prices.promo,
+                                credit: product.prices.credit,
+
+                            }
+                            return new_product;
+                        });
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+        },
+        addProduct(){
+            let productExists = false;
+            let product = '';
+            let pvp=0;
+            for (let index = 0; index < this.productList.length; index++) {
+                if (this.productList[index].name == this.inputProduct) {
+                    productExists = true;
+                    product = this.productList[index];
+                    break;
+                }
+            }
+           
+            if (productExists ) {
+                
+                switch (this.payment) {
+                    case 'cash':
+                        pvp = product.cash;
+                        break;
+                    case 'promo':
+                         pvp = product.promo;
+                        break;
+                    case 'credit':
+                         pvp = product.credit;
+                        break;
+                
+                    default:
+                        break;
+                }
+
+                $('#tableSale').bootstrapTable('insertRow',{
+                    index: $('#tableSale').bootstrapTable('getOptions').totalRows+1,
+                    row:{
+                        product: product.name,
+                        id: product.id,
+                        quantity:this.quantity,
+                        acciones:'x',
+                        pvp:pvp
+
+
+                    }
+                }) 
+
+                this.quantity = 1;
+                this.inputProduct = ''
+                this.totalRows();
+                this.$refs.inputProduct.focus()
+            }
+
+        },
+        totalRows(){
+           this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
+        }
+
+    },
+
+
+}
 </script>
 
 <style>

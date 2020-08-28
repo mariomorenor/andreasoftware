@@ -7532,7 +7532,200 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      ci: '',
+      name: '',
+      last_name: '',
+      address: '',
+      phone: '',
+      email: '',
+      date: '',
+      userExist: false,
+      client: '',
+      productList: '',
+      inputProduct: '',
+      productVoucher: '',
+      quantity: 1,
+      payment: false,
+      tableActive: false
+    };
+  },
+  mounted: function mounted() {
+    this.init();
+    this.deleteTable();
+  },
+  beforeMount: function beforeMount() {
+    this.date = moment().format('YYYY-MM-DD');
+  },
+  methods: {
+    deleteTable: function deleteTable() {
+      console.log('a');
+      $('#tableSale').bootstrapTable('removeAll');
+    },
+    init: function init() {
+      $('#tableSale').bootstrapTable({
+        height: '500'
+      });
+    },
+    checkClient: function checkClient() {
+      var _this = this;
+
+      if (this.ci == '') {
+        Swal.fire('La cédula no puede estar vacía', '', 'error');
+      } else {
+        axios.get('/clients/1', {
+          params: {
+            cedula: $('#cedula').val()
+          }
+        }).then(function (_ref) {
+          var data = _ref.data;
+
+          if (data) {
+            _this.name = data.name;
+            _this.last_name = data.last_name;
+            _this.address = data.address;
+            _this.phone = data.phone;
+            _this.email = data.email;
+            _this.userExist = true;
+            _this.client = data;
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'No existe datos para la cédula ingresada!',
+              timer: 1000
+            });
+            _this.name = '';
+            _this.last_name = '';
+            _this.address = '';
+            _this.phone = '';
+            _this.email = '';
+            _this.userExist = false;
+            _this.client = '';
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    getProduct: function getProduct() {
+      var _this2 = this;
+
+      axios.get('/products', {
+        params: {
+          product: this.inputProduct
+        }
+      }).then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.productList = data.map(function (product) {
+          var new_product = {
+            name: product.name,
+            id: product.id,
+            code: product.code,
+            cash: product.prices.cash,
+            promo: product.prices.promo,
+            credit: product.prices.credit
+          };
+          return new_product;
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addProduct: function addProduct() {
+      var productExists = false;
+      var product = '';
+      var pvp = 0;
+
+      for (var index = 0; index < this.productList.length; index++) {
+        if (this.productList[index].name == this.inputProduct) {
+          productExists = true;
+          product = this.productList[index];
+          break;
+        }
+      }
+
+      if (productExists) {
+        switch (this.payment) {
+          case 'cash':
+            pvp = product.cash;
+            break;
+
+          case 'promo':
+            pvp = product.promo;
+            break;
+
+          case 'credit':
+            pvp = product.credit;
+            break;
+
+          default:
+            break;
+        }
+
+        $('#tableSale').bootstrapTable('insertRow', {
+          index: $('#tableSale').bootstrapTable('getOptions').totalRows + 1,
+          row: {
+            product: product.name,
+            id: product.id,
+            quantity: this.quantity,
+            acciones: 'x',
+            pvp: pvp
+          }
+        });
+        this.quantity = 1;
+        this.inputProduct = '';
+        this.totalRows();
+        this.$refs.inputProduct.focus();
+      }
+    },
+    totalRows: function totalRows() {
+      this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0 ? true : false;
+    }
+  }
+});
 
 /***/ }),
 
@@ -70677,11 +70870,125 @@ var render = function() {
                 [_c("i", { staticClass: "fas fa-check-circle" })]
               ),
               _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.userExist,
+                      expression: "userExist"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-outline-primary ml-1",
+                      attrs: {
+                        "data-toggle": "tooltip",
+                        title: "Modificar Usuario",
+                        "data-placement": "top",
+                        to: {
+                          name: "editClient",
+                          params: { client: _vm.client }
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c("div", { staticClass: "invalid-feedback" }, [
                 _vm._v(
                   "\n                          Ingrese un número de cédula\n                      "
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ci,
+                    expression: "ci"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "cedula",
+                  autofocus: "",
+                  id: "cedula",
+                  autocomplete: "off",
+                  required: ""
+                },
+                domProps: { value: _vm.ci },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ci = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success ml-2",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "tooltip",
+                    "data-placement": "top",
+                    title: "Confirmar Cédula"
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.checkClient()
+                    }
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-check-circle" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.userExist,
+                      expression: "userExist"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-outline-primary ml-1",
+                      attrs: {
+                        "data-toggle": "tooltip",
+                        title: "Modificar Usuario",
+                        "data-placement": "top",
+                        to: {
+                          name: "editClient",
+                          params: { client: _vm.client }
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                ],
+                1
+              )
             ]),
             _c("br"),
             _vm._v(" "),
@@ -70887,7 +71194,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("input", {
-                  attrs: { type: "number", disabled: !_vm.payment }
+                  attrs: { type: "text", disabled: !_vm.payment }
                 }),
                 _vm._v(" "),
                 _c(
@@ -70896,11 +71203,18 @@ var render = function() {
                   [_vm._v("Cantidad: ")]
                 ),
                 _vm._v(" "),
+                _c("input", {
+                  staticStyle: { width: "50px" },
+                  attrs: { type: "number", min: "1" }
+                }),
+                _vm._v(" "),
                 _vm._m(1)
               ])
             ]),
             _vm._v(" "),
-            _c("hr")
+            _c("hr"),
+            _vm._v(" "),
+            _vm._m(2)
           ])
         ])
       ])
@@ -70990,6 +71304,83 @@ var staticRenderFns = [
         attrs: { type: "button", title: "Vaciar tabla" }
       },
       [_c("i", { staticClass: "fas fa-trash-alt" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "table",
+      {
+        staticClass: "table table-striped table-bordered table-hover",
+        attrs: { id: "tableSale", "data-toolbar": "#toolbarTableSales" }
+      },
+      [
+        _c("thead", { staticClass: "thead-dark" }, [
+          _c("tr", [
+            _c("th", {
+              attrs: { "data-field": "id", "data-visible": "false" }
+            }),
+            _vm._v(" "),
+            _c("th", {
+              attrs: {
+                "data-field": "acciones",
+                "data-width": "55",
+                "data-formatter": "salesAccionesFormatter"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: {
+                  "data-field": "product",
+                  "data-align": "center",
+                  "data-width": "380"
+                }
+              },
+              [_vm._v("Detalle")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: {
+                  "data-field": "quantity",
+                  "data-align": "center",
+                  "data-width": "50"
+                }
+              },
+              [_vm._v("Cantidad")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: {
+                  "data-field": "pvp",
+                  "data-align": "center",
+                  "data-width": "50"
+                }
+              },
+              [_vm._v("Valor Unitario")]
+            ),
+            _vm._v(" "),
+            _c(
+              "th",
+              {
+                attrs: {
+                  "data-field": "pvpTotal",
+                  "data-align": "center",
+                  "data-width": "50"
+                }
+              },
+              [_vm._v("Valor Total")]
+            )
+          ])
+        ])
+      ]
     )
   }
 ]
