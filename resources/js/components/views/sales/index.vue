@@ -28,16 +28,22 @@
                     </div>
 
                     <div class="col-md-4">
-                        <button type="button" class="btn btn-outline-success" @click="checkClient()" title="Confirmar cédula">
-                            <i class="fas fa-check-circle"></i>
-                        </button>
 
-                        <div v-show="userExist">
-                            <router-link class="btn btn-outline-primary" title="Modificar Usuario" :to="{name:'editClient', params:{client}}">
-                                <i class="fas fa-edit"></i>
-                            </router-link>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-outline-success" @click="checkClient()" title="Confirmar cédula">
+                                    <i class="fas fa-check-circle"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-md-6 btn-modify">
+                                <div v-show="userExist">
+                                    <router-link class="btn btn-outline-primary" title="Modificar Usuario" :to="{name:'editClient', params:{client}}">
+                                        <i class="fas fa-edit"></i>
+                                    </router-link>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div><br>
 
@@ -129,11 +135,11 @@
                                 <button type="button" class="btn btn-secondary" @click="addProduct()">Agregar</button>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" @keyup="getProduct()" v-on:keyup.enter="addProduct()" v-model="inputProduct" list="productList" ref="inputProduct" :disabled="!payment" :title="!payment?'Seleccione un Método de pago':''" autocomplete="off">
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <label for="cantidad" class="font-weight-bold">Cantidad: </label>
                             </div>
 
@@ -151,9 +157,24 @@
                             </div>
                         </div>
                     </div>
+                </div><hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tableSale" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th data-field="id" data-visible="false"></th>
+                                    <th data-field="acciones" data-width="55" data-formatter="salesAccionesFormatter"></th>
+                                    <th data-field="product" data-align="center" data-width="380">Detalle</th>
+                                    <th data-field="quantity" class="quantity" id="quantity" data-align="center" data-width="50">Cantidad</th>
+                                    <th data-field="pvp" class="pvp" id="pvp" data-align="center" data-width="50">Valor Unitario</th>
+                                    <th data-field="pvpTotal" class="pvpTotal" data-align="center" data-width="50">Valor Total</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
-
-
             </form>
         </div>
 
@@ -164,6 +185,213 @@
 
 <script>
 export default {
+
+    data() {
+        return {
+            ci:'',
+            name: '',
+            last_name: '',
+            address: '',
+            phone: '',
+            email: '',
+            date: '',
+            userExist: false,
+            client: '',
+            productList: '',
+            inputProduct: '',
+            productVoucher:'',
+            quantity:1,
+            payment:false,
+            tableActive:false
+
+        }
+    },
+    mounted() {
+        this.init()
+        this.deleteTable();
+    },
+    beforeMount() {
+        this.date = moment().format('YYYY-MM-DD');
+    },
+    methods: {
+        deleteTable(){
+            console.log('a')
+            $('#tableSale').bootstrapTable('removeAll')
+        },
+        init() {
+            $('#tableSale').bootstrapTable({
+                height:'500'
+            });
+        },
+        checkClient() {
+            if (this.ci == '') {
+                Swal.fire('La cédula no puede estár vacía', '','error')
+            } else {
+                  axios.get('/clients/1', {
+                    params: {
+                        cedula: $('#cedula').val()
+                    }
+                })
+                .then(({
+                    data
+                }) => {
+                    if (data) {
+                        this.name = data.name;
+                        this.last_name = data.last_name;
+                        this.address = data.address;
+                        this.phone = data.phone;
+                        this.email = data.email;
+                        this.userExist = true;
+                        this.client = data
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'No existe datos para la cédula ingresada!',
+                            timer: 1000
+                        });
+                        this.name = '';
+                        this.last_name = '';
+                        this.address = '';
+                        this.phone = '';
+                        this.email = '';
+                        this.userExist = false;
+                        this.client = '';
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+            }
+          
+        },
+        getProduct() {
+                axios.get('/products', {
+                        params: {
+                            product: this.inputProduct
+                        }
+                    })
+                    .then(({
+                        data
+                    }) => {
+                        this.productList = data.map(function (product) {
+                            
+                            let new_product = {
+                                name: product.name,
+                                id: product.id,
+                                code: product.code,
+                                cash:product.prices.cash,
+                                promo: product.prices.promo,
+                                credit: product.prices.credit,
+
+                            }
+                            return new_product;
+                        });
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    });
+        },
+        addProduct(){
+            let productExists = false;
+            let product = '';
+            let pvp=0;
+            for (let index = 0; index < this.productList.length; index++) {
+                if (this.productList[index].name == this.inputProduct) {
+                    productExists = true;
+                    product = this.productList[index];
+                    break;
+                }
+            }
+           
+            if (productExists ) {
+                
+                switch (this.payment) {
+                    case 'cash':
+                        pvp = product.cash;
+                        break;
+                    case 'promo':
+                         pvp = product.promo;
+                        break;
+                    case 'credit':
+                         pvp = product.credit;
+                        break;
+                
+                    default:
+                        break;
+                }
+                
+                // TODO pendiente ver la edición
+                $('#tableSale').bootstrapTable('insertRow',{
+                    index: $('#tableSale').bootstrapTable('getOptions').totalRows+1,
+                    row:{
+                        product: product.name,
+                        id: product.id,
+                        quantity:'<div contenteditable="true">'+this.quantity+'</div>',
+                        acciones:'x',
+                        pvp:pvp,
+                        // pvpTotal:(pvp*this.quantity).toFixed(2)
+                        pvpTotal: this.calcularTotal()
+
+
+                    }
+                })
+
+                // TODO esto lo estoy probando
+
+                /*$('#tableSale thead tr').each(function(){
+                    row_editable = $(this),
+                    cant = quantity.val(),
+                    prec = pvp.val();
+
+                    var total = 0;
+                    total = cant * prec;
+                    alert("mirar"+cant);
+                    alert("mirar"+prec);
+                    alert("mirar"+total);
+                    
+                    row_editable = {
+                        pvpTotal: total.toFixed(2)
+                    }
+                })*/
+
+                this.quantity = 1;
+                this.inputProduct = ''
+                this.totalRows();
+                this.$refs.inputProduct.focus()
+            }
+
+        },
+        totalRows(){
+           this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
+        },
+        calcularTotal(){
+            
+           /* $('#tableSale thead tr').each(function(){
+                    row_editable = $(this),
+                    cant = quantity.val(),
+                    prec = pvp.val();
+
+                    var total = 0;
+                    total = cant * prec;
+                    alert("mirar"+cant);
+                    alert("mirar"+prec);
+                    alert("mirar"+total);
+                    
+                    /*row_editable = {
+                        pvpTotal: total.toFixed(2)
+                    }
+
+                    return total;
+                    
+                })*/
+            
+            cant = document.getElementById('quantity').value();
+
+            return cant;
+
+        }
+
+    },
     
 }
 </script>
@@ -201,5 +429,8 @@ export default {
         border-right: 2px solid rgb(123, 190, 157);
     }
 
+    .btn-modify{
+        margin-left: -125px;
+    }
 
 </style>
