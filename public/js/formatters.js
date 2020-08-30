@@ -33,6 +33,20 @@ function salesAccionesFormatter(value, row) {
     return '<button type="button" class="btn btn-danger deleteButtonSales "><i class="fas fa-trash-alt"></i></button>'
 }
 
+function totalProducto(value, row){
+    return Number((row.quantity*row.pvp).toFixed(2));
+}
+
+function calcularTotal(data){
+    console.log(data);
+    var field = this.field
+    return data.map(function (row) {
+      return +row[field]
+    }).reduce(function (sum, i) {
+      return Number((sum + i).toFixed(2))
+    }, 0)   
+}
+
 //Bancos
 
 function banksUserFormatter(value, row) {

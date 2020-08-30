@@ -7657,6 +7657,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+window.operateEventsSale = {
+  'click .deleteButtonSales': function clickDeleteButtonSales(e, value, row) {
+    $('#tableSale').bootstrapTable('remove', {
+      field: 'product',
+      values: row.product
+    });
+  }
+};
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7799,11 +7807,10 @@ __webpack_require__.r(__webpack_exports__);
           row: {
             product: product.name,
             id: product.id,
-            quantity: '<div contenteditable="true">' + this.quantity + '</div>',
-            acciones: '@click="deleteProduct()"',
+            quantity: this.quantity,
+            acciones: 'x',
             pvp: pvp,
-            // pvpTotal:(pvp*this.quantity).toFixed(2)
-            pvpTotal: this.totalProduct(this.quantity, pvp)
+            pvpTotal: this.quantity * pvp
           }
         }); // TODO esto lo estoy probando
 
@@ -7836,43 +7843,11 @@ __webpack_require__.r(__webpack_exports__);
       alert("eliminar");
     },
     totalProduct: function totalProduct(cant, prec) {
-      /* $('#tableSale thead tr').each(function(){
-               row_editable = $(this),
-               cant = quantity.val(),
-               prec = pvp.val();
-                 var total = 0;
-               total = cant * prec;
-               alert("mirar"+cant);
-               alert("mirar"+prec);
-               alert("mirar"+total);
-               
-               /*row_editable = {
-                   pvpTotal: total.toFixed(2)
-               }
-                 return total;
-               
-           })*/
       var total = (cant * prec).toFixed(2);
       return total;
     },
-    // TODO prueba para calcular el total probando
-    calcularTotal: function calcularTotal() {
-      $(document).ready(function () {
-        //Defino los totales de mis 2 columnas en 0
-        var total_col1 = 0;
-        var total_col2 = 0; //Recorro todos los tr ubicados en el tbody
-
-        $('#tableSale thead').find('tr').each(function (i, el) {
-          //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
-          total_col1 += parseFloat($(this).find('th').eq(0).text());
-          total_col2 += parseFloat($(this).find('th').eq(1).text());
-        }); //Muestro el resultado en el th correspondiente a la columna
-        // $('#ejemplo tfoot tr th').eq(0).text("Total " + total_col1);
-        // $('#ejemplo tfoot tr th').eq(1).text("Total " + total_col2);
-
-        alert(total_col1);
-        '#total'.text(total_col1);
-      });
+    refresh: function refresh() {
+      $('#tableSale').bootstrapTable('refresh');
     }
   }
 });
@@ -71633,7 +71608,11 @@ var staticRenderFns = [
           "table",
           {
             staticClass: "table table-striped table-bordered table-hover",
-            attrs: { id: "tableSale", "data-toolbar": "#toolbarTableSales" }
+            attrs: {
+              id: "tableSale",
+              "data-show-footer": "true",
+              "data-toolbar": "#toolbarTableSales"
+            }
           },
           [
             _c("thead", { staticClass: "thead-dark" }, [
@@ -71645,6 +71624,7 @@ var staticRenderFns = [
                 _c("th", {
                   attrs: {
                     "data-field": "acciones",
+                    "data-events": "operateEventsSale",
                     "data-width": "55",
                     "data-formatter": "salesAccionesFormatter"
                   }
@@ -71665,10 +71645,8 @@ var staticRenderFns = [
                 _c(
                   "th",
                   {
-                    staticClass: "quantity",
                     attrs: {
                       "data-field": "quantity",
-                      id: "quantity",
                       "data-align": "center",
                       "data-width": "50"
                     }
@@ -71679,10 +71657,8 @@ var staticRenderFns = [
                 _c(
                   "th",
                   {
-                    staticClass: "pvp",
                     attrs: {
                       "data-field": "pvp",
-                      id: "pvp",
                       "data-align": "center",
                       "data-width": "50"
                     }
@@ -71693,9 +71669,10 @@ var staticRenderFns = [
                 _c(
                   "th",
                   {
-                    staticClass: "pvpTotal",
                     attrs: {
                       "data-field": "pvpTotal",
+                      "data-formatter": "totalProducto",
+                      "data-footer-formatter": "calcularTotal",
                       "data-align": "center",
                       "data-width": "50"
                     }

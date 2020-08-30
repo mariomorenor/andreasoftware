@@ -161,15 +161,15 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <table id="tableSale" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
+                        <table id="tableSale" data-show-footer="true" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
                             <thead class="thead-dark">
                                 <tr>
                                     <th data-field="id" data-visible="false"></th>
-                                    <th data-field="acciones" data-width="55" data-formatter="salesAccionesFormatter"></th>
+                                    <th data-field="acciones" data-events="operateEventsSale" data-width="55" data-formatter="salesAccionesFormatter"></th>
                                     <th data-field="product" data-align="center" data-width="380">Detalle</th>
-                                    <th data-field="quantity" class="quantity" id="quantity" data-align="center" data-width="50">Cantidad</th>
-                                    <th data-field="pvp" class="pvp" id="pvp" data-align="center" data-width="50">Valor Unitario</th>
-                                    <th data-field="pvpTotal" class="pvpTotal" data-align="center" data-width="50">Valor Total</th>
+                                    <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
+                                    <th data-field="pvp" data-align="center" data-width="50">Valor Unitario</th>
+                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularTotal" data-align="center" data-width="50">Valor Total</th>
                                 </tr>
                             </thead>
                         </table>
@@ -228,6 +228,16 @@
 </template>
 
 <script>
+window.operateEventsSale = {
+   'click .deleteButtonSales':function(e, value,row){
+       
+    $('#tableSale').bootstrapTable('remove',{
+        field:'product',
+        values: row.product
+    });
+  }
+}
+
 export default {
 
     data() {
@@ -374,11 +384,10 @@ export default {
                     row:{
                         product: product.name,
                         id: product.id,
-                        quantity:'<div contenteditable="true">'+this.quantity+'</div>',
-                        acciones:'@click="deleteProduct()"',
+                        quantity: this.quantity,
+                        acciones:'x',
                         pvp:pvp,
-                        // pvpTotal:(pvp*this.quantity).toFixed(2)
-                        pvpTotal: this.totalProduct(this.quantity, pvp)
+                        pvpTotal: this.quantity*pvp
 
 
                     }
@@ -419,56 +428,20 @@ export default {
 
         },
         totalProduct(cant, prec){
-            
-           /* $('#tableSale thead tr').each(function(){
-                    row_editable = $(this),
-                    cant = quantity.val(),
-                    prec = pvp.val();
-
-                    var total = 0;
-                    total = cant * prec;
-                    alert("mirar"+cant);
-                    alert("mirar"+prec);
-                    alert("mirar"+total);
-                    
-                    /*row_editable = {
-                        pvpTotal: total.toFixed(2)
-                    }
-
-                    return total;
-                    
-                })*/
+        
             
             var total = (cant*prec).toFixed(2);
 
             return total;
 
         },
-        // TODO prueba para calcular el total probando
-        calcularTotal(){
-            $(document).ready(function(){
-            //Defino los totales de mis 2 columnas en 0
-            var total_col1 = 0;
-            var total_col2 = 0;
-            //Recorro todos los tr ubicados en el tbody
-                $('#tableSale thead').find('tr').each(function (i, el) {
-                        
-                    //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
-                    total_col1 += parseFloat($(this).find('th').eq(0).text());
-                    total_col2 += parseFloat($(this).find('th').eq(1).text());
-                            
-                });
-                //Muestro el resultado en el th correspondiente a la columna
-                // $('#ejemplo tfoot tr th').eq(0).text("Total " + total_col1);
-                // $('#ejemplo tfoot tr th').eq(1).text("Total " + total_col2);
-                alert(total_col1);
-
-                ('#total').text(total_col1);
-
-            });
+        refresh(){
+            
+            $('#tableSale').bootstrapTable('refresh');
         }
 
     },
+    
     
 }
 </script>
