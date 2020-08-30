@@ -7613,6 +7613,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -7644,6 +7688,10 @@ __webpack_require__.r(__webpack_exports__);
     deleteTable: function deleteTable() {
       console.log('a');
       $('#tableSale').bootstrapTable('removeAll');
+    },
+    // TODO funcion de prueba
+    deleteProducto: function deleteProducto() {
+      alert("eliminado");
     },
     init: function init() {
       $('#tableSale').bootstrapTable({
@@ -7752,10 +7800,10 @@ __webpack_require__.r(__webpack_exports__);
             product: product.name,
             id: product.id,
             quantity: '<div contenteditable="true">' + this.quantity + '</div>',
-            acciones: 'x',
+            acciones: '@click="deleteProduct()"',
             pvp: pvp,
             // pvpTotal:(pvp*this.quantity).toFixed(2)
-            pvpTotal: this.calcularTotal()
+            pvpTotal: this.totalProduct(this.quantity, pvp)
           }
         }); // TODO esto lo estoy probando
 
@@ -7783,7 +7831,11 @@ __webpack_require__.r(__webpack_exports__);
     totalRows: function totalRows() {
       this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0 ? true : false;
     },
-    calcularTotal: function calcularTotal() {
+    // TODO para eliminar una fila probando
+    deleteProduct: function deleteProduct() {
+      alert("eliminar");
+    },
+    totalProduct: function totalProduct(cant, prec) {
       /* $('#tableSale thead tr').each(function(){
                row_editable = $(this),
                cant = quantity.val(),
@@ -7800,8 +7852,27 @@ __webpack_require__.r(__webpack_exports__);
                  return total;
                
            })*/
-      cant = document.getElementById('quantity').value();
-      return cant;
+      var total = (cant * prec).toFixed(2);
+      return total;
+    },
+    // TODO prueba para calcular el total probando
+    calcularTotal: function calcularTotal() {
+      $(document).ready(function () {
+        //Defino los totales de mis 2 columnas en 0
+        var total_col1 = 0;
+        var total_col2 = 0; //Recorro todos los tr ubicados en el tbody
+
+        $('#tableSale thead').find('tr').each(function (i, el) {
+          //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
+          total_col1 += parseFloat($(this).find('th').eq(0).text());
+          total_col2 += parseFloat($(this).find('th').eq(1).text());
+        }); //Muestro el resultado en el th correspondiente a la columna
+        // $('#ejemplo tfoot tr th').eq(0).text("Total " + total_col1);
+        // $('#ejemplo tfoot tr th').eq(1).text("Total " + total_col2);
+
+        alert(total_col1);
+        '#total'.text(total_col1);
+      });
     }
   }
 });
@@ -12544,7 +12615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#body-form{\n    margin: 1rem auto 0;\n    border: 1px solid rgb(19, 18, 18);\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\n    border-radius: 15px;\n}\n.title-form{\n    font-size: 20px;\n    text-align: center;\n    font-weight: bold;\n}\n.label-container{\n    margin-right: -250px;\n}\nhr{\n    background: rgb(123, 190, 157);\n}\n.title-form-group{\n    font-size: 17px;\n    font-weight: bold;\n}\n.vertical-line{\n    border-right: 2px solid rgb(123, 190, 157);\n}\n.btn-modify{\n    margin-left: -125px;\n}\n\n", ""]);
+exports.push([module.i, "\n#body-form{\n    margin: 1rem auto 1rem;\n    border: 1px solid rgb(19, 18, 18);\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\n    border-radius: 15px;\n}\n.title-form{\n    font-size: 20px;\n    text-align: center;\n    font-weight: bold;\n}\n.label-container{\n    margin-right: -250px;\n}\nhr{\n    background: rgb(123, 190, 157);\n}\n.title-form-group{\n    font-size: 17px;\n    font-weight: bold;\n}\n.vertical-line{\n    border-right: 2px solid rgb(123, 190, 157);\n}\n.btn-modify{\n    margin-left: -125px;\n}\n\n", ""]);
 
 // exports
 
@@ -71438,7 +71509,11 @@ var render = function() {
         ]),
         _c("hr"),
         _vm._v(" "),
-        _vm._m(9)
+        _vm._m(9),
+        _c("hr"),
+        _vm._v(" "),
+        _vm._m(10),
+        _c("hr")
       ])
     ])
   ])
@@ -71631,6 +71706,90 @@ var staticRenderFns = [
             ])
           ]
         )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-secondary", attrs: { type: "button" } },
+          [_vm._v("Guardar")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "row float-right" }, [
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _c(
+              "label",
+              { staticClass: "font-weight-bold", attrs: { for: "subtotal" } },
+              [_vm._v("Subtotal: ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _vm._v(
+              "\n                            Cantidad\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6" }, [
+                _c(
+                  "label",
+                  { staticClass: "font-weight-bold", attrs: { for: "iva" } },
+                  [_vm._v("Iva")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  staticStyle: { width: "100%" },
+                  attrs: { type: "number", min: "12", max: "13", value: "0" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "font-weight-bold",
+                    attrs: { for: "porcentaje" }
+                  },
+                  [_vm._v("%:")]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _vm._v(
+              "\n                            Cantidad\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _c(
+              "label",
+              { staticClass: "font-weight-bold", attrs: { for: "total" } },
+              [_vm._v("Total:")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 text-right" }, [
+            _c("label", {
+              staticClass: "total",
+              attrs: { for: "total", id: "total" }
+            })
+          ])
+        ])
       ])
     ])
   }

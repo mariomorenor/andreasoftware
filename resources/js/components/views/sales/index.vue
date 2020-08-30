@@ -174,13 +174,57 @@
                             </thead>
                         </table>
                     </div>
-                </div>
+                </div><hr>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-secondary">Guardar</button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row float-right">
+                            <div class="col-md-6 text-right">
+                                <label for="subtotal" class="font-weight-bold">Subtotal: </label>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                Cantidad
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="iva" class="font-weight-bold">Iva</label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <input type="number" style="width: 100%" min="12" max="13" value="0" class="form-control">
+                                        
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label for="porcentaje" class="font-weight-bold">%:</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                Cantidad
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <label for="total" class="font-weight-bold">Total:</label>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <label for="total" id="total" class="total"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div><hr>
             </form>
         </div>
-
-
     </div>
-
 </template>
 
 <script>
@@ -217,6 +261,10 @@ export default {
         deleteTable(){
             console.log('a')
             $('#tableSale').bootstrapTable('removeAll')
+        },
+        // TODO funcion de prueba
+        deleteProducto(){
+            alert("eliminado");
         },
         init() {
             $('#tableSale').bootstrapTable({
@@ -327,10 +375,10 @@ export default {
                         product: product.name,
                         id: product.id,
                         quantity:'<div contenteditable="true">'+this.quantity+'</div>',
-                        acciones:'x',
+                        acciones:'@click="deleteProduct()"',
                         pvp:pvp,
                         // pvpTotal:(pvp*this.quantity).toFixed(2)
-                        pvpTotal: this.calcularTotal()
+                        pvpTotal: this.totalProduct(this.quantity, pvp)
 
 
                     }
@@ -364,7 +412,13 @@ export default {
         totalRows(){
            this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
         },
-        calcularTotal(){
+        // TODO para eliminar una fila probando
+        deleteProduct: function(){
+            
+            alert ("eliminar");
+
+        },
+        totalProduct(cant, prec){
             
            /* $('#tableSale thead tr').each(function(){
                     row_editable = $(this),
@@ -385,10 +439,33 @@ export default {
                     
                 })*/
             
-            cant = document.getElementById('quantity').value();
+            var total = (cant*prec).toFixed(2);
 
-            return cant;
+            return total;
 
+        },
+        // TODO prueba para calcular el total probando
+        calcularTotal(){
+            $(document).ready(function(){
+            //Defino los totales de mis 2 columnas en 0
+            var total_col1 = 0;
+            var total_col2 = 0;
+            //Recorro todos los tr ubicados en el tbody
+                $('#tableSale thead').find('tr').each(function (i, el) {
+                        
+                    //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
+                    total_col1 += parseFloat($(this).find('th').eq(0).text());
+                    total_col2 += parseFloat($(this).find('th').eq(1).text());
+                            
+                });
+                //Muestro el resultado en el th correspondiente a la columna
+                // $('#ejemplo tfoot tr th').eq(0).text("Total " + total_col1);
+                // $('#ejemplo tfoot tr th').eq(1).text("Total " + total_col2);
+                alert(total_col1);
+
+                ('#total').text(total_col1);
+
+            });
         }
 
     },
@@ -400,7 +477,7 @@ export default {
 <style>
 
     #body-form{
-        margin: 1rem auto 0;
+        margin: 1rem auto 1rem;
         border: 1px solid rgb(19, 18, 18);
         box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);
         border-radius: 15px;
