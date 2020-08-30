@@ -43,8 +43,12 @@ function calcularTotal(data){
     return data.map(function (row) {
       return +row[field]
     }).reduce(function (sum, i) {
-      return Number((sum + i).toFixed(2))
-    }, 0)   
+        iva = 0.12;
+        suma = sum + i;
+        total_iva = suma * iva;
+        subtotal = suma - total_iva;
+        return Number(subtotal.toFixed(2));
+    }, 0)
 }
 
 //Bancos
