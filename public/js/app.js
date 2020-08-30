@@ -7585,22 +7585,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-window.operateEvents = {
-  'click .editButtonClient': function clickEditButtonClient(e, value, row) {
+window.operateEventsSellers = {
+  'click .editButtonSellers': function clickEditButtonSellers(e, value, row) {
     app.__vue__.$router.push({
-      name: 'editClient',
+      name: 'editSeller',
       params: {
-        client: row
+        seller: row
       }
     });
   },
-  'click .deleteButtonClient': function clickDeleteButtonClient(e, value, row) {
+  'click .deleteButtonSellers': function clickDeleteButtonSellers(e, value, row) {
     Swal.fire({
       icon: 'error',
-      title: '¿Seguro de Eliminar este cliente?',
+      title: '¿Seguro de Eliminar este Colaborador?',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       confirmButtonText: 'Eliminar',
@@ -7608,9 +7605,9 @@ window.operateEvents = {
       confirmButtonColor: 'red'
     }).then(function (result) {
       if (result.value) {
-        axios["delete"]('/clients/' + row.id).then(function (response) {
+        axios["delete"]('/sellers/' + row.id).then(function (response) {
           if (response.status == 200) {
-            $('#tableClients').bootstrapTable('remove', {
+            $('#tableSellers').bootstrapTable('remove', {
               field: 'name',
               values: row.name
             });
@@ -7618,7 +7615,7 @@ window.operateEvents = {
 
           Swal.fire({
             icon: 'success',
-            title: 'Cliente Eliminado Correctamente',
+            title: 'Colaborador Eliminado Correctamente',
             timer: 2000
           });
         })["catch"](function (error) {
@@ -7630,7 +7627,6 @@ window.operateEvents = {
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('adasd');
     this.init();
     this.screenSize();
   },
@@ -7643,26 +7639,26 @@ window.operateEvents = {
   },
   methods: {
     init: function init() {
-      $('#tableClients').bootstrapTable({
-        url: '/clients'
+      $('#tableSellers').bootstrapTable({
+        url: '/sellers'
       });
     },
     screenSize: function screenSize() {
       if (window.innerWidth <= 1366) {
-        $('#tableClients').bootstrapTable('resetView', {
+        $('#tableSellers').bootstrapTable('resetView', {
           height: 500
         });
       } else if (window.innerWidth > 1366 && window.innerWidth <= 1920) {
-        $('#tableClients').bootstrapTable('resetView', {
+        $('#tableSellers').bootstrapTable('resetView', {
           height: 700
         });
       }
     },
     downloadPDFClient: function downloadPDFClient() {
-      this.totalPages = $('#tableClients').bootstrapTable('getOptions').totalPages, this.pageNumber = $('#tableClients').bootstrapTable('getOptions').pageNumber;
-      this.pageSize = $('#tableClients').bootstrapTable('getOptions').pageSize;
+      this.totalPages = $('#tableSellers').bootstrapTable('getOptions').totalPages, this.pageNumber = $('#tableSellers').bootstrapTable('getOptions').pageNumber;
+      this.pageSize = $('#tableSellers').bootstrapTable('getOptions').pageSize;
       setTimeout(function () {
-        $('#formPDFClients')[0].submit(function (e) {});
+        $('#formPDFSeller')[0].submit(function (e) {});
       }, 1000);
     }
   }
@@ -71232,7 +71228,7 @@ var render = function() {
             staticClass: "inline-block",
             attrs: {
               action: "/report-download/clients",
-              id: "formPDFClients",
+              id: "formPDFSeller",
               method: "get"
             }
           },
@@ -71313,7 +71309,7 @@ var staticRenderFns = [
       {
         staticClass: "table table-stripped table-hover",
         attrs: {
-          id: "tableClients",
+          id: "tableSellers",
           "data-page-list": "[10, 25, 50, 100, 200, All]",
           "data-pagination": "true",
           "data-page-size": "100",
@@ -71336,25 +71332,13 @@ var staticRenderFns = [
               [_vm._v("Apellidos")]
             ),
             _vm._v(" "),
-            _c("th", { attrs: { "data-field": "cedula" } }, [
-              _vm._v("Cédula/Ruc")
-            ]),
-            _vm._v(" "),
-            _c("th", { attrs: { "data-field": "address" } }, [
-              _vm._v("Dirección")
-            ]),
-            _vm._v(" "),
-            _c("th", { attrs: { "data-field": "phone" } }, [
-              _vm._v("Teléfono")
-            ]),
-            _vm._v(" "),
-            _c("th", { attrs: { "data-field": "email" } }, [_vm._v("Correo")]),
+            _c("th", { attrs: { "data-field": "ci" } }, [_vm._v("Cédula/Ruc")]),
             _vm._v(" "),
             _c("th", {
               attrs: {
-                "data-formatter": "clientsEventFormatter",
+                "data-formatter": "sellersEventFormatter",
                 "data-field": "acciones",
-                "data-events": "operateEvents",
+                "data-events": "operateEventsSellers",
                 "data-width": "120"
               }
             })
@@ -88076,7 +88060,6 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
         var data = _ref.data;
 
         if (data) {
-          console.log(data);
           state.user = data;
           state.isAuth = true;
         } else {

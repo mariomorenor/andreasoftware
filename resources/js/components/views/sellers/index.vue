@@ -3,7 +3,7 @@
       <div id="toolbar" class="d-flex">
           <router-link :to="{name:'createClient'}" class="btn btn-primary">Agregar Cliente <i
                   class="fas fa-plus-circle"></i></router-link>
-          <form action="/report-download/clients" id="formPDFClients" class="inline-block" method="get">
+          <form action="/report-download/clients" id="formPDFSeller" class="inline-block" method="get">
               <input type="hidden" name="format" value="PDF">
               <input type="hidden" name='totalPages' :value="totalPages">
               <input type="hidden" name='pageNumber' :value="pageNumber">
@@ -15,17 +15,14 @@
               <button type="submit" class="btn btn-success ml-1">EXCEL</button>
           </form>
       </div>
-      <table class="table table-stripped table-hover" id="tableClients" data-page-list="[10, 25, 50, 100, 200, All]"
+      <table class="table table-stripped table-hover" id="tableSellers" data-page-list="[10, 25, 50, 100, 200, All]"
           data-pagination="true" data-page-size="100" data-toolbar="#toolbar" data-search="true">
           <thead class="thead-dark">
               <tr>
                   <th data-field="name" data-sortable="true">Nombres</th>
                   <th data-field="last_name" data-sortable="true">Apellidos</th>
-                  <th data-field="cedula">Cédula/Ruc</th>
-                  <th data-field="address">Dirección</th>
-                  <th data-field="phone">Teléfono</th>
-                  <th data-field="email">Correo</th>
-                  <th data-formatter="clientsEventFormatter" data-field="acciones" data-events="operateEvents"
+                  <th data-field="ci">Cédula/Ruc</th>
+                  <th data-formatter="sellersEventFormatter" data-field="acciones" data-events="operateEventsSellers"
                       data-width="120"></th>
               </tr>
           </thead>
@@ -35,14 +32,14 @@
 </template>
 
 <script>
-window.operateEvents = {
-  'click .editButtonClient':function(e,value,row){
-    app.__vue__.$router.push({name:'editClient', params:{client:row}})
+window.operateEventsSellers = {
+  'click .editButtonSellers':function(e,value,row){
+    app.__vue__.$router.push({name:'editSeller', params:{seller:row}})
   },
-  'click .deleteButtonClient':function(e, value,row){
+  'click .deleteButtonSellers':function(e, value,row){
     Swal.fire({
       icon: 'error',
-      title:'¿Seguro de Eliminar este cliente?',
+      title:'¿Seguro de Eliminar este Colaborador?',
       showCancelButton: true,
       cancelButtonText:'Cancelar',
       confirmButtonText:'Eliminar',
@@ -50,17 +47,17 @@ window.operateEvents = {
       confirmButtonColor:'red'
     }).then((result)=>{
       if (result.value) {
-        axios.delete('/clients/'+row.id)
+        axios.delete('/sellers/'+row.id)
               .then((response)=>{
                 if (response.status == 200) {
-                  $('#tableClients').bootstrapTable('remove',{
+                  $('#tableSellers').bootstrapTable('remove',{
                   field:'name',
                   values: row.name
                   });
                 }
                 Swal.fire({
                   icon:'success',
-                  title:'Cliente Eliminado Correctamente',
+                  title:'Colaborador Eliminado Correctamente',
                   timer:2000
                 })
               })
@@ -74,7 +71,6 @@ window.operateEvents = {
 }
 export default {
     mounted() {
-      console.log('adasd')
         this.init()
         this.screenSize()
     },
@@ -87,23 +83,23 @@ export default {
     },
 methods: {
     init(){
-        $('#tableClients').bootstrapTable({
-            url:'/clients'
+        $('#tableSellers').bootstrapTable({
+            url:'/sellers'
         });
     },
     screenSize(){
                     if (window.innerWidth<=1366) {
-                        $('#tableClients').bootstrapTable( 'resetView' , {height: 500} );
+                        $('#tableSellers').bootstrapTable( 'resetView' , {height: 500} );
                     } else if(window.innerWidth>1366 && window.innerWidth<=1920) {
-                            $('#tableClients').bootstrapTable( 'resetView' , {height: 700} );
+                            $('#tableSellers').bootstrapTable( 'resetView' , {height: 700} );
                     }
     },
     downloadPDFClient(){
-            this.totalPages = $('#tableClients').bootstrapTable('getOptions').totalPages,
-            this.pageNumber = $('#tableClients').bootstrapTable('getOptions').pageNumber
-            this.pageSize = $('#tableClients').bootstrapTable('getOptions').pageSize
+            this.totalPages = $('#tableSellers').bootstrapTable('getOptions').totalPages,
+            this.pageNumber = $('#tableSellers').bootstrapTable('getOptions').pageNumber
+            this.pageSize = $('#tableSellers').bootstrapTable('getOptions').pageSize
             setTimeout(function(){
-              $('#formPDFClients')[0].submit(function (e) {});
+              $('#formPDFSeller')[0].submit(function (e) {});
             },1000);      
     },
     

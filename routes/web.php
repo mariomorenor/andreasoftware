@@ -26,6 +26,9 @@ Route::resource('products','ProductController')->except(['show','edit','create']
 //Clientes
 Route::resource('clients','ClientController')->except(['edit','create']);
 
+//Colaboradores
+Route::resource('sellers','SellerController')->except(['edit','create']);
+
 // Reportes
 Route::get('report-download/{inventory}','ReportController@index');
 

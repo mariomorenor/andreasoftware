@@ -4,6 +4,7 @@ use App\Client;
 use App\Income;
 use App\Price;
 use App\Product;
+use App\Seller;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         factory(Product::class,500)->create();
         factory(Client::class,100)->create();
         factory(Income::class,10000)->create();
+        factory(Seller::class,500)->create();
     }
 }
