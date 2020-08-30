@@ -169,59 +169,18 @@
                                     <th data-field="product" data-align="center" data-width="380">Detalle</th>
                                     <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
                                     <th data-field="pvp" data-align="center" data-width="50">Valor Unitario</th>
-                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularTotal" data-align="center" data-width="50">Valor Total</th>
+                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularIva" data-align="center" data-width="50">Valor Total</th>
                                 </tr>
                             </thead>
                         </table>
                     </div>
                 </div><hr>
 
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row text-right">
+                    <div class="col-md-12">
                         <button type="button" class="btn btn-secondary">Guardar</button>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="row float-right">
-                            <div class="col-md-6 text-right">
-                                <label for="subtotal" class="font-weight-bold">Subtotal: </label>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                Cantidad
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="iva" class="font-weight-bold">Iva</label>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input type="number" style="width: 100%" min="12" max="13" value="0" class="form-control">
-                                        
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <label for="porcentaje" class="font-weight-bold">%:</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                Cantidad
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <label for="total" class="font-weight-bold">Total:</label>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <label for="total" id="total" class="total"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div><hr>
+                </div>
             </form>
         </div>
     </div>
@@ -271,10 +230,6 @@ export default {
         deleteTable(){
             console.log('a')
             $('#tableSale').bootstrapTable('removeAll')
-        },
-        // TODO funcion de prueba
-        deleteProducto(){
-            alert("eliminado");
         },
         init() {
             $('#tableSale').bootstrapTable({
@@ -378,7 +333,6 @@ export default {
                         break;
                 }
                 
-                // TODO pendiente ver la edición
                 $('#tableSale').bootstrapTable('insertRow',{
                     index: $('#tableSale').bootstrapTable('getOptions').totalRows+1,
                     row:{
@@ -388,28 +342,8 @@ export default {
                         acciones:'x',
                         pvp:pvp,
                         pvpTotal: this.quantity*pvp
-
-
                     }
                 })
-
-                // TODO esto lo estoy probando
-
-                /*$('#tableSale thead tr').each(function(){
-                    row_editable = $(this),
-                    cant = quantity.val(),
-                    prec = pvp.val();
-
-                    var total = 0;
-                    total = cant * prec;
-                    alert("mirar"+cant);
-                    alert("mirar"+prec);
-                    alert("mirar"+total);
-                    
-                    row_editable = {
-                        pvpTotal: total.toFixed(2)
-                    }
-                })*/
 
                 this.quantity = 1;
                 this.inputProduct = ''
@@ -420,20 +354,6 @@ export default {
         },
         totalRows(){
            this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
-        },
-        // TODO para eliminar una fila probando
-        deleteProduct: function(){
-            
-            alert ("eliminar");
-
-        },
-        totalProduct(cant, prec){
-        
-            
-            var total = (cant*prec).toFixed(2);
-
-            return total;
-
         },
         refresh(){
             
@@ -454,6 +374,7 @@ export default {
         border: 1px solid rgb(19, 18, 18);
         box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);
         border-radius: 15px;
+        padding: 1rem;
     }
 
     .title-form{

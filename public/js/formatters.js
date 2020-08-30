@@ -37,17 +37,39 @@ function totalProducto(value, row){
     return Number((row.quantity*row.pvp).toFixed(2));
 }
 
-function calcularTotal(data){
-    console.log(data);
+function calcularSubtotal(data){
     var field = this.field
     return data.map(function (row) {
       return +row[field]
     }).reduce(function (sum, i) {
-        iva = 0.12;
-        suma = sum + i;
-        total_iva = suma * iva;
-        subtotal = suma - total_iva;
+        var iva = 12;
+        var total = sum + i;
+        var subtotal = total / (1 + (iva / 100));
         return Number(subtotal.toFixed(2));
+    }, 0)
+}
+
+function calcularTotal(data){
+    var field = this.field
+    return data.map(function (row) {
+      return +row[field]
+    }).reduce(function (sum, i) {
+        return Number((sum + i).toFixed(2));
+    }, 0)
+}
+
+function calcularIva(data){
+    var field = this.field
+    return data.map(function (row) {
+      return +row[field]
+    }).reduce(function (sum, i) {
+        alert('hola');
+        var iva = 12;
+        var total = sum + i;
+        var subtotal = suma / (1 + (iva / 100));
+        var total_iva = total - subtotal;
+        alert ('subtotal: '+ total_iva);
+        return Number(total_iva.toFixed(2));
     }, 0)
 }
 

@@ -7616,47 +7616,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 window.operateEventsSale = {
   'click .deleteButtonSales': function clickDeleteButtonSales(e, value, row) {
     $('#tableSale').bootstrapTable('remove', {
@@ -7696,10 +7655,6 @@ window.operateEventsSale = {
     deleteTable: function deleteTable() {
       console.log('a');
       $('#tableSale').bootstrapTable('removeAll');
-    },
-    // TODO funcion de prueba
-    deleteProducto: function deleteProducto() {
-      alert("eliminado");
     },
     init: function init() {
       $('#tableSale').bootstrapTable({
@@ -7799,8 +7754,7 @@ window.operateEventsSale = {
 
           default:
             break;
-        } // TODO pendiente ver la edición
-
+        }
 
         $('#tableSale').bootstrapTable('insertRow', {
           index: $('#tableSale').bootstrapTable('getOptions').totalRows + 1,
@@ -7812,23 +7766,7 @@ window.operateEventsSale = {
             pvp: pvp,
             pvpTotal: this.quantity * pvp
           }
-        }); // TODO esto lo estoy probando
-
-        /*$('#tableSale thead tr').each(function(){
-            row_editable = $(this),
-            cant = quantity.val(),
-            prec = pvp.val();
-              var total = 0;
-            total = cant * prec;
-            alert("mirar"+cant);
-            alert("mirar"+prec);
-            alert("mirar"+total);
-            
-            row_editable = {
-                pvpTotal: total.toFixed(2)
-            }
-        })*/
-
+        });
         this.quantity = 1;
         this.inputProduct = '';
         this.totalRows();
@@ -7837,14 +7775,6 @@ window.operateEventsSale = {
     },
     totalRows: function totalRows() {
       this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0 ? true : false;
-    },
-    // TODO para eliminar una fila probando
-    deleteProduct: function deleteProduct() {
-      alert("eliminar");
-    },
-    totalProduct: function totalProduct(cant, prec) {
-      var total = (cant * prec).toFixed(2);
-      return total;
     },
     refresh: function refresh() {
       $('#tableSale').bootstrapTable('refresh');
@@ -12590,7 +12520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#body-form{\n    margin: 1rem auto 1rem;\n    border: 1px solid rgb(19, 18, 18);\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\n    border-radius: 15px;\n}\n.title-form{\n    font-size: 20px;\n    text-align: center;\n    font-weight: bold;\n}\n.label-container{\n    margin-right: -250px;\n}\nhr{\n    background: rgb(123, 190, 157);\n}\n.title-form-group{\n    font-size: 17px;\n    font-weight: bold;\n}\n.vertical-line{\n    border-right: 2px solid rgb(123, 190, 157);\n}\n.btn-modify{\n    margin-left: -125px;\n}\n\n", ""]);
+exports.push([module.i, "\n#body-form{\n    margin: 1rem auto 1rem;\n    border: 1px solid rgb(19, 18, 18);\n    box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);\n    border-radius: 15px;\n    padding: 1rem;\n}\n.title-form{\n    font-size: 20px;\n    text-align: center;\n    font-weight: bold;\n}\n.label-container{\n    margin-right: -250px;\n}\nhr{\n    background: rgb(123, 190, 157);\n}\n.title-form-group{\n    font-size: 17px;\n    font-weight: bold;\n}\n.vertical-line{\n    border-right: 2px solid rgb(123, 190, 157);\n}\n.btn-modify{\n    margin-left: -125px;\n}\n\n", ""]);
 
 // exports
 
@@ -71487,8 +71417,7 @@ var render = function() {
         _vm._m(9),
         _c("hr"),
         _vm._v(" "),
-        _vm._m(10),
-        _c("hr")
+        _vm._m(10)
       ])
     ])
   ])
@@ -71672,7 +71601,7 @@ var staticRenderFns = [
                     attrs: {
                       "data-field": "pvpTotal",
                       "data-formatter": "totalProducto",
-                      "data-footer-formatter": "calcularTotal",
+                      "data-footer-formatter": "calcularIva",
                       "data-align": "center",
                       "data-width": "50"
                     }
@@ -71690,83 +71619,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
+    return _c("div", { staticClass: "row text-right" }, [
+      _c("div", { staticClass: "col-md-12" }, [
         _c(
           "button",
           { staticClass: "btn btn-secondary", attrs: { type: "button" } },
           [_vm._v("Guardar")]
         )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "row float-right" }, [
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _c(
-              "label",
-              { staticClass: "font-weight-bold", attrs: { for: "subtotal" } },
-              [_vm._v("Subtotal: ")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _vm._v(
-              "\n                            Cantidad\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6" }, [
-                _c(
-                  "label",
-                  { staticClass: "font-weight-bold", attrs: { for: "iva" } },
-                  [_vm._v("Iva")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  staticStyle: { width: "100%" },
-                  attrs: { type: "number", min: "12", max: "13", value: "0" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-2" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "font-weight-bold",
-                    attrs: { for: "porcentaje" }
-                  },
-                  [_vm._v("%:")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _vm._v(
-              "\n                            Cantidad\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _c(
-              "label",
-              { staticClass: "font-weight-bold", attrs: { for: "total" } },
-              [_vm._v("Total:")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 text-right" }, [
-            _c("label", {
-              staticClass: "total",
-              attrs: { for: "total", id: "total" }
-            })
-          ])
-        ])
       ])
     ])
   }
