@@ -10,7 +10,8 @@
                     <div class="col-md-12">
                         <div class="float-right">
                             <label for="vendedor" class="font-weight-bold">Vendedor: </label>
-                            {{this.$store.state.user.name}}
+                            <!-- TODO agregar el select con los vendedores -->
+                            <select name="vendedor" id="vendedor"></select>
                         </div>
                     </div>
                 </div><hr>
@@ -23,10 +24,10 @@
                     </div>
                         
                     <div class="col-md-4">
-                        <input type="text" name="cedula" id="cedula" class="form-control" v-model="ci" autocomplete="off" required>
+                        <input type="text" name="cedula" id="cedula" class="form-control" style="width: 73%" v-model="ci" autocomplete="off" required>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 button-container">
 
                         <div class="row">
                             <div class="col-md-6">
@@ -187,19 +188,18 @@
 
 <script>
 window.operateEventsSale = {
-   'click .deleteButtonSales':function(e, value,row){
-       
-    $('#tableSale').bootstrapTable('remove',{
-        field:'product',
-        values: row.product
-    });
-  }
+    'click .deleteButtonSales':function(e, value,row){
+        
+        $('#tableSale').bootstrapTable('remove',{
+            field:'product',
+            values: row.product
+        });
+    }
 }
 
 export default {
-
-    data() {
-        return {
+    data(){
+        return{
             ci:'',
             name: '',
             last_name: '',
@@ -215,29 +215,46 @@ export default {
             quantity:1,
             payment:false,
             tableActive:false
-
         }
     },
-    mounted() {
+    mounted(){
         this.init()
-        this.deleteTable();
     },
-    beforeMount() {
+    beforeMount(){
         this.date = moment().format('YYYY-MM-DD');
     },
     methods: {
         deleteTable(){
-            console.log('a')
-            $('#tableSale').bootstrapTable('removeAll')
+            Swal.fire({
+                icon: 'error',
+                title:'Se borraran todos los datos ingresados',
+                text: '¿Está seguro?',
+                showCancelButton: true,
+                cancelButtonText:'Cancelar',
+                confirmButtonText:'Eliminar',
+                cancelButtonColor: 'green',
+                confirmButtonColor:'red'
+                }).then((result)=>{
+                if (result.value) {
+                    $('#tableSale').bootstrapTable('removeAll');
+
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Datos eliminados correctamente',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                }  
+            });
         },
-        init() {
+        init(){
             $('#tableSale').bootstrapTable({
                 height:'500'
             });
         },
-        checkClient() {
-            if (this.ci == '') {
-                Swal.fire('La cédula no puede estár vacía', '','error')
+        checkClient(){
+            if(this.ci == ''){
+                Swal.fire('El número no se encuentra registrado', '','error')
             } else {
                   axios.get('/clients/1', {
                     params: {
@@ -274,50 +291,48 @@ export default {
                     console.log(error)
                 });
             }
-          
         },
-        getProduct() {
-                axios.get('/products', {
-                        params: {
-                            product: this.inputProduct
-                        }
-                    })
-                    .then(({
-                        data
-                    }) => {
-                        this.productList = data.map(function (product) {
-                            
-                            let new_product = {
-                                name: product.name,
-                                id: product.id,
-                                code: product.code,
-                                cash:product.prices.cash,
-                                promo: product.prices.promo,
-                                credit: product.prices.credit,
-
-                            }
-                            return new_product;
-                        });
-                    })
-                    .catch((error) => {
-                        console.log(error)
-                    });
+        getProduct(){
+            axios.get('/products', {
+                params: {
+                    product: this.inputProduct
+                }
+            })
+            .then(({
+                    data
+            }) => {
+                this.productList = data.map(function (product) {
+                    
+                    let new_product = {
+                        name: product.name,
+                        id: product.id,
+                        code: product.code,
+                        cash:product.prices.cash,
+                        promo: product.prices.promo,
+                        credit: product.prices.credit,
+                    }
+                    return new_product;
+                });
+            })
+            .catch((error) => {
+                console.log(error)
+            });
         },
         addProduct(){
             let productExists = false;
             let product = '';
             let pvp=0;
-            for (let index = 0; index < this.productList.length; index++) {
-                if (this.productList[index].name == this.inputProduct) {
+            for(let index = 0; index < this.productList.length; index++){
+                if(this.productList[index].name == this.inputProduct){
                     productExists = true;
                     product = this.productList[index];
                     break;
                 }
             }
            
-            if (productExists ) {
+            if(productExists){
                 
-                switch (this.payment) {
+                switch (this.payment){
                     case 'cash':
                         pvp = product.cash;
                         break;
@@ -349,7 +364,6 @@ export default {
                 this.totalRows();
                 this.$refs.inputProduct.focus()
             }
-
         },
         totalRows(){
            this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
@@ -358,10 +372,7 @@ export default {
             
             $('#tableSale').bootstrapTable('refresh');
         }
-
-    },
-    
-    
+    }
 }
 </script>
 
@@ -382,7 +393,11 @@ export default {
     }
 
     .label-container{
-        margin-right: -250px;
+        margin-right: -275px;
+    }
+
+    .button-container{
+        margin-left: -93px;
     }
 
     hr{

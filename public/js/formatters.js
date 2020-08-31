@@ -43,18 +43,23 @@ function totalProducto(value, row){
 
 function calcularSubtotal(data){
     var field = this.field
-    
+    var iva = 12;
+
     let total = data.map(function (row) {
       return +row[field]
     }).reduce(function (sum, i) {
         return Number((sum + i).toFixed(2));
         }, 0)
 
-        // TODO cambiar y mejorar el iva
-        let total_iva = total * 0.12;
-        let subtotal = total - total_iva;
+    // TODO cambiar y mejorar el iva
+    let subtotal = total / (1 + (iva/100));
+    let total_iva = total - subtotal;
 
-        return Number(subtotal.toFixed(2))+"<br>"+Number(total_iva.toFixed(2))+"<br>"+Number(total.toFixed(2));
+    alert('subtotal: '+subtotal);
+    alert('total iva: '+total_iva);
+    alert('total: '+total);
+
+    return Number(subtotal.toFixed(2))+"<br>"+Number(total_iva.toFixed(2))+"<br>"+Number(total.toFixed(2));
 }
 
 function footerTable(){
