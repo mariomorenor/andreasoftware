@@ -161,6 +161,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
+<<<<<<< HEAD
                         <table id="tableSale" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
                             <thead class="thead-dark">
                                 <tr>
@@ -170,12 +171,24 @@
                                     <th data-field="quantity" class="quantity" id="quantity" data-align="center" data-width="50">Cantidad</th>
                                     <th data-field="pvp" class="pvp" id="pvp" data-align="center" data-width="50">Valor Unitario</th>
                                     <th data-field="pvpTotal" class="pvpTotal" data-align="center" data-width="50">Valor Total</th>
+=======
+                        <table id="tableSale" data-show-footer="true" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th data-field="id" data-visible="false"></th>
+                                    <th data-field="acciones" data-events="operateEventsSale" data-width="55" data-formatter="salesAccionesFormatter"></th>
+                                    <th data-field="product" data-align="center" data-width="380">Detalle</th>
+                                    <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
+                                    <th data-field="pvp" data-footer-formatter="footerTable" data-align="center" data-width="50">Valor Unitario</th>
+                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularSubtotal" data-align="center" data-width="50">Valor Total</th>
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                                 </tr>
                             </thead>
                         </table>
                     </div>
                 </div><hr>
 
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-md-6">
                         <button type="button" class="btn btn-secondary">Guardar</button>
@@ -222,12 +235,29 @@
                         </div>
                     </div>
                 </div><hr>
+=======
+                <div class="row text-right">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-secondary">Guardar</button>
+                    </div>
+                </div>
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
             </form>
         </div>
     </div>
 </template>
 
 <script>
+window.operateEventsSale = {
+   'click .deleteButtonSales':function(e, value,row){
+       
+    $('#tableSale').bootstrapTable('remove',{
+        field:'product',
+        values: row.product
+    });
+  }
+}
+
 export default {
 
     data() {
@@ -262,10 +292,13 @@ export default {
             console.log('a')
             $('#tableSale').bootstrapTable('removeAll')
         },
+<<<<<<< HEAD
         // TODO funcion de prueba
         deleteProducto(){
             alert("eliminado");
         },
+=======
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
         init() {
             $('#tableSale').bootstrapTable({
                 height:'500'
@@ -368,12 +401,16 @@ export default {
                         break;
                 }
                 
+<<<<<<< HEAD
                 // TODO pendiente ver la edición
+=======
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                 $('#tableSale').bootstrapTable('insertRow',{
                     index: $('#tableSale').bootstrapTable('getOptions').totalRows+1,
                     row:{
                         product: product.name,
                         id: product.id,
+<<<<<<< HEAD
                         quantity:'<div contenteditable="true">'+this.quantity+'</div>',
                         acciones:'@click="deleteProduct()"',
                         pvp:pvp,
@@ -402,6 +439,15 @@ export default {
                     }
                 })*/
 
+=======
+                        quantity: this.quantity,
+                        acciones:'x',
+                        pvp:pvp,
+                        pvpTotal: (this.quantity*pvp).toFixed(2)
+                    }
+                })
+
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                 this.quantity = 1;
                 this.inputProduct = ''
                 this.totalRows();
@@ -412,6 +458,7 @@ export default {
         totalRows(){
            this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
         },
+<<<<<<< HEAD
         // TODO para eliminar una fila probando
         deleteProduct: function(){
             
@@ -466,10 +513,19 @@ export default {
                 ('#total').text(total_col1);
 
             });
+=======
+        refresh(){
+            
+            $('#tableSale').bootstrapTable('refresh');
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
         }
 
     },
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
 }
 </script>
 
@@ -481,6 +537,10 @@ export default {
         border: 1px solid rgb(19, 18, 18);
         box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);
         border-radius: 15px;
+<<<<<<< HEAD
+=======
+        padding: 1rem;
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
     }
 
     .title-form{
@@ -510,4 +570,8 @@ export default {
         margin-left: -125px;
     }
 
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
