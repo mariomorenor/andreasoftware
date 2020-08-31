@@ -25,6 +25,11 @@ function clientsEventFormatter(value,row) {
     return '<button class="btn btn-success editButtonClient mr-2"><i class="fas fa-edit"></i></button>'+
     '<button class="btn btn-danger deleteButtonClient "><i class="fas fa-trash-alt"></i></button>'
 }
+// Sellers
+function sellersEventFormatter(value,row) {
+    return '<button class="btn btn-success editButtonSellers mr-2"><i class="fas fa-edit"></i></button>'+
+    '<button class="btn btn-danger deleteButtonSellers"><i class="fas fa-trash-alt"></i></button>'
+}
 
 //Ventas
 

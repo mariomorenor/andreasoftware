@@ -401,5 +401,4 @@ export default {
     .btn-modify{
         margin-left: -125px;
     }
-
 </style>

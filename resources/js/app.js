@@ -38,7 +38,6 @@ const store = new Vuex.Store({
         getUser(state){
             axios.get('user-authenticated').then(({data})=>{
                 if (data) {
-                    console.log(data)
                     state.user = data;
                     state.isAuth=true;
                 } else { 
