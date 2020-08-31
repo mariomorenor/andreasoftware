@@ -131,11 +131,13 @@
                         <p class="title-form-group">Productos</p>
 
                         <div class="row">
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-secondary" @click="addProduct()">Agregar</button>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-success" @click="addProduct()" :disabled="!payment">
+                                    Agregar <i class="fas fa-plus-circle"></i>
+                                </button>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <input type="text" class="form-control" @keyup="getProduct()" v-on:keyup.enter="addProduct()" v-model="inputProduct" list="productList" ref="inputProduct" :disabled="!payment" :title="!payment?'Seleccione un Método de pago':''" autocomplete="off">
                             </div>
 
@@ -148,12 +150,6 @@
                                 <datalist id="productList">
                                     <option v-for="(product) in productList" :value="product.name" :key="product.id">{{product.name}}</option>
                                 </datalist>
-                            </div>
-
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-danger" title="Eliminar todo" @click="deleteTable()">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -178,7 +174,13 @@
 
                 <div class="row text-right">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-secondary">Guardar</button>
+                        <button type="button" class="btn btn-danger" title="Eliminar todo" @click="deleteTable()" :disabled="!payment">
+                            Eliminar Venta <i class="fas fa-trash-alt"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-success" :disabled="!payment">
+                            Guardar Venta <i class="fas fa-plus-circle"></i>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -242,7 +244,7 @@ export default {
                         icon: 'success',
                         text: 'Datos eliminados correctamente',
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 1000
                     })
                 }  
             });
@@ -357,7 +359,8 @@ export default {
                         pvp:pvp,
                         pvpTotal: (this.quantity*pvp).toFixed(2)
                     }
-                })
+                    
+                }) 
 
                 this.quantity = 1;
                 this.inputProduct = ''

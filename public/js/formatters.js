@@ -32,9 +32,8 @@ function sellersEventFormatter(value,row) {
 }
 
 //Ventas
-
 function salesAccionesFormatter(value, row) {
-    return '<button type="button" class="btn btn-danger deleteButtonSales "><i class="fas fa-trash-alt"></i></button>'
+    return '<button type="button" class="btn btn-outline-danger deleteButtonSales "><i class="fas fa-trash-alt"></i></button>'
 }
 
 function totalProducto(value, row){
@@ -52,12 +51,9 @@ function calcularSubtotal(data){
         }, 0)
 
     // TODO cambiar y mejorar el iva
+    //TODO hice el otro proceso del para obtener el iva
     let subtotal = total / (1 + (iva/100));
     let total_iva = total - subtotal;
-
-    alert('subtotal: '+subtotal);
-    alert('total iva: '+total_iva);
-    alert('total: '+total);
 
     return Number(subtotal.toFixed(2))+"<br>"+Number(total_iva.toFixed(2))+"<br>"+Number(total.toFixed(2));
 }

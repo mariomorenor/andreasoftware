@@ -7713,6 +7713,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 window.operateEventsSale = {
   'click .deleteButtonSales': function clickDeleteButtonSales(e, value, row) {
     $('#tableSale').bootstrapTable('remove', {
@@ -7765,7 +7767,7 @@ window.operateEventsSale = {
             icon: 'success',
             text: 'Datos eliminados correctamente',
             showConfirmButton: false,
-            timer: 2000
+            timer: 1000
           });
         }
       });
@@ -71964,23 +71966,26 @@ var render = function() {
             _c("p", { staticClass: "title-form-group" }, [_vm._v("Productos")]),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-2" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button" },
+                    staticClass: "btn btn-success",
+                    attrs: { type: "button", disabled: !_vm.payment },
                     on: {
                       click: function($event) {
                         return _vm.addProduct()
                       }
                     }
                   },
-                  [_vm._v("Agregar")]
+                  [
+                    _vm._v("\n                                Agregar "),
+                    _c("i", { staticClass: "fas fa-plus-circle" })
+                  ]
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-5" }, [
                 _c("input", {
                   directives: [
                     {
@@ -72083,22 +72088,6 @@ var render = function() {
                   }),
                   0
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button", title: "Eliminar todo" },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteTable()
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fas fa-trash-alt" })]
-                )
               ])
             ])
           ])
@@ -72108,7 +72097,42 @@ var render = function() {
         _vm._m(10),
         _c("hr"),
         _vm._v(" "),
-        _vm._m(11)
+        _c("div", { staticClass: "row text-right" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                attrs: {
+                  type: "button",
+                  title: "Eliminar todo",
+                  disabled: !_vm.payment
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.deleteTable()
+                  }
+                }
+              },
+              [
+                _vm._v("\n                        Eliminar Venta "),
+                _c("i", { staticClass: "fas fa-trash-alt" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                attrs: { type: "button", disabled: !_vm.payment }
+              },
+              [
+                _vm._v("\n                        Guardar Venta "),
+                _c("i", { staticClass: "fas fa-plus-circle" })
+              ]
+            )
+          ])
+        ])
       ])
     ])
   ])
@@ -72321,20 +72345,6 @@ var staticRenderFns = [
               ])
             ])
           ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-right" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-secondary", attrs: { type: "button" } },
-          [_vm._v("Guardar")]
         )
       ])
     ])
