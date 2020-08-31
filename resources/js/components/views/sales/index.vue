@@ -476,9 +476,6 @@ export default {
 
 <style>
 
-<<<<<<< HEAD
-</style> 
-=======
     #body-form{
         margin: 1rem auto 1rem;
         border: 1px solid rgb(19, 18, 18);
@@ -514,4 +511,3 @@ export default {
     }
 
 </style>
->>>>>>> 7c642655b7a4fefb7d44137d53879f1aa363cfd0
