@@ -32,6 +32,30 @@ function salesAccionesFormatter(value, row) {
     return '<button type="button" class="btn btn-danger deleteButtonSales "><i class="fas fa-trash-alt"></i></button>'
 }
 
+function totalProducto(value, row){
+    return Number((row.quantity*row.pvp).toFixed(2));
+}
+
+function calcularSubtotal(data){
+    var field = this.field
+    
+    let total = data.map(function (row) {
+      return +row[field]
+    }).reduce(function (sum, i) {
+        return Number((sum + i).toFixed(2));
+        }, 0)
+
+        // TODO cambiar y mejorar el iva
+        let total_iva = total * 0.12;
+        let subtotal = total - total_iva;
+
+        return Number(subtotal.toFixed(2))+"<br>"+Number(total_iva.toFixed(2))+"<br>"+Number(total.toFixed(2));
+}
+
+function footerTable(){
+    return "Subtotal: <br> Iva 12%: <br> Total: ";
+}
+
 //Bancos
 
 function banksUserFormatter(value, row) {
