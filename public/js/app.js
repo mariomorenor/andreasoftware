@@ -7764,7 +7764,7 @@ window.operateEventsSale = {
             quantity: this.quantity,
             acciones: 'x',
             pvp: pvp,
-            pvpTotal: this.quantity * pvp
+            pvpTotal: (this.quantity * pvp).toFixed(2)
           }
         });
         this.quantity = 1;
@@ -71588,6 +71588,7 @@ var staticRenderFns = [
                   {
                     attrs: {
                       "data-field": "pvp",
+                      "data-footer-formatter": "footerTable",
                       "data-align": "center",
                       "data-width": "50"
                     }
@@ -71601,7 +71602,7 @@ var staticRenderFns = [
                     attrs: {
                       "data-field": "pvpTotal",
                       "data-formatter": "totalProducto",
-                      "data-footer-formatter": "calcularIva",
+                      "data-footer-formatter": "calcularSubtotal",
                       "data-align": "center",
                       "data-width": "50"
                     }

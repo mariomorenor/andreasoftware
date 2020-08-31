@@ -168,8 +168,8 @@
                                     <th data-field="acciones" data-events="operateEventsSale" data-width="55" data-formatter="salesAccionesFormatter"></th>
                                     <th data-field="product" data-align="center" data-width="380">Detalle</th>
                                     <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
-                                    <th data-field="pvp" data-align="center" data-width="50">Valor Unitario</th>
-                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularIva" data-align="center" data-width="50">Valor Total</th>
+                                    <th data-field="pvp" data-footer-formatter="footerTable" data-align="center" data-width="50">Valor Unitario</th>
+                                    <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularSubtotal" data-align="center" data-width="50">Valor Total</th>
                                 </tr>
                             </thead>
                         </table>
@@ -341,7 +341,7 @@ export default {
                         quantity: this.quantity,
                         acciones:'x',
                         pvp:pvp,
-                        pvpTotal: this.quantity*pvp
+                        pvpTotal: (this.quantity*pvp).toFixed(2)
                     }
                 })
 

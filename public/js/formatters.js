@@ -39,38 +39,22 @@ function totalProducto(value, row){
 
 function calcularSubtotal(data){
     var field = this.field
-    return data.map(function (row) {
-      return +row[field]
-    }).reduce(function (sum, i) {
-        var iva = 12;
-        var total = sum + i;
-        var subtotal = total / (1 + (iva / 100));
-        return Number(subtotal.toFixed(2));
-    }, 0)
-}
-
-function calcularTotal(data){
-    var field = this.field
-    return data.map(function (row) {
+    
+    let total = data.map(function (row) {
       return +row[field]
     }).reduce(function (sum, i) {
         return Number((sum + i).toFixed(2));
-    }, 0)
+        }, 0)
+
+        // TODO cambiar y mejorar el iva
+        let total_iva = total * 0.12;
+        let subtotal = total - total_iva;
+
+        return Number(subtotal.toFixed(2))+"<br>"+Number(total_iva.toFixed(2))+"<br>"+Number(total.toFixed(2));
 }
 
-function calcularIva(data){
-    var field = this.field
-    return data.map(function (row) {
-      return +row[field]
-    }).reduce(function (sum, i) {
-        alert('hola');
-        var iva = 12;
-        var total = sum + i;
-        var subtotal = suma / (1 + (iva / 100));
-        var total_iva = total - subtotal;
-        alert ('subtotal: '+ total_iva);
-        return Number(total_iva.toFixed(2));
-    }, 0)
+function footerTable(){
+    return "Subtotal: <br> Iva 12%: <br> Total: ";
 }
 
 //Bancos
