@@ -161,17 +161,6 @@
 
                 <div class="row">
                     <div class="col-md-12">
-<<<<<<< HEAD
-                        <table id="tableSale" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th data-field="id" data-visible="false"></th>
-                                    <th data-field="acciones" data-width="55" data-formatter="salesAccionesFormatter"></th>
-                                    <th data-field="product" data-align="center" data-width="380">Detalle</th>
-                                    <th data-field="quantity" class="quantity" id="quantity" data-align="center" data-width="50">Cantidad</th>
-                                    <th data-field="pvp" class="pvp" id="pvp" data-align="center" data-width="50">Valor Unitario</th>
-                                    <th data-field="pvpTotal" class="pvpTotal" data-align="center" data-width="50">Valor Total</th>
-=======
                         <table id="tableSale" data-show-footer="true" class="table table-striped table-bordered table-hover" data-toolbar="#toolbarTableSales">                                                        
                             <thead class="thead-dark">
                                 <tr>
@@ -181,67 +170,17 @@
                                     <th data-field="quantity" data-align="center" data-width="50">Cantidad</th>
                                     <th data-field="pvp" data-footer-formatter="footerTable" data-align="center" data-width="50">Valor Unitario</th>
                                     <th data-field="pvpTotal" data-formatter="totalProducto" data-footer-formatter="calcularSubtotal" data-align="center" data-width="50">Valor Total</th>
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                                 </tr>
                             </thead>
                         </table>
                     </div>
                 </div><hr>
 
-<<<<<<< HEAD
-                <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-secondary">Guardar</button>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="row float-right">
-                            <div class="col-md-6 text-right">
-                                <label for="subtotal" class="font-weight-bold">Subtotal: </label>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                Cantidad
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="iva" class="font-weight-bold">Iva</label>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input type="number" style="width: 100%" min="12" max="13" value="0" class="form-control">
-                                        
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <label for="porcentaje" class="font-weight-bold">%:</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                Cantidad
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <label for="total" class="font-weight-bold">Total:</label>
-                            </div>
-
-                            <div class="col-md-6 text-right">
-                                <label for="total" id="total" class="total"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div><hr>
-=======
                 <div class="row text-right">
                     <div class="col-md-12">
                         <button type="button" class="btn btn-secondary">Guardar</button>
                     </div>
                 </div>
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
             </form>
         </div>
     </div>
@@ -292,13 +231,6 @@ export default {
             console.log('a')
             $('#tableSale').bootstrapTable('removeAll')
         },
-<<<<<<< HEAD
-        // TODO funcion de prueba
-        deleteProducto(){
-            alert("eliminado");
-        },
-=======
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
         init() {
             $('#tableSale').bootstrapTable({
                 height:'500'
@@ -401,45 +333,11 @@ export default {
                         break;
                 }
                 
-<<<<<<< HEAD
-                // TODO pendiente ver la edición
-=======
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                 $('#tableSale').bootstrapTable('insertRow',{
                     index: $('#tableSale').bootstrapTable('getOptions').totalRows+1,
                     row:{
                         product: product.name,
                         id: product.id,
-<<<<<<< HEAD
-                        quantity:'<div contenteditable="true">'+this.quantity+'</div>',
-                        acciones:'@click="deleteProduct()"',
-                        pvp:pvp,
-                        // pvpTotal:(pvp*this.quantity).toFixed(2)
-                        pvpTotal: this.totalProduct(this.quantity, pvp)
-
-
-                    }
-                })
-
-                // TODO esto lo estoy probando
-
-                /*$('#tableSale thead tr').each(function(){
-                    row_editable = $(this),
-                    cant = quantity.val(),
-                    prec = pvp.val();
-
-                    var total = 0;
-                    total = cant * prec;
-                    alert("mirar"+cant);
-                    alert("mirar"+prec);
-                    alert("mirar"+total);
-                    
-                    row_editable = {
-                        pvpTotal: total.toFixed(2)
-                    }
-                })*/
-
-=======
                         quantity: this.quantity,
                         acciones:'x',
                         pvp:pvp,
@@ -447,7 +345,6 @@ export default {
                     }
                 })
 
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
                 this.quantity = 1;
                 this.inputProduct = ''
                 this.totalRows();
@@ -458,74 +355,14 @@ export default {
         totalRows(){
            this.tableActive = $('#tableSale').bootstrapTable("getOptions").totalRows > 0? true:false;
         },
-<<<<<<< HEAD
-        // TODO para eliminar una fila probando
-        deleteProduct: function(){
-            
-            alert ("eliminar");
-
-        },
-        totalProduct(cant, prec){
-            
-           /* $('#tableSale thead tr').each(function(){
-                    row_editable = $(this),
-                    cant = quantity.val(),
-                    prec = pvp.val();
-
-                    var total = 0;
-                    total = cant * prec;
-                    alert("mirar"+cant);
-                    alert("mirar"+prec);
-                    alert("mirar"+total);
-                    
-                    /*row_editable = {
-                        pvpTotal: total.toFixed(2)
-                    }
-
-                    return total;
-                    
-                })*/
-            
-            var total = (cant*prec).toFixed(2);
-
-            return total;
-
-        },
-        // TODO prueba para calcular el total probando
-        calcularTotal(){
-            $(document).ready(function(){
-            //Defino los totales de mis 2 columnas en 0
-            var total_col1 = 0;
-            var total_col2 = 0;
-            //Recorro todos los tr ubicados en el tbody
-                $('#tableSale thead').find('tr').each(function (i, el) {
-                        
-                    //Voy incrementando las variables segun la fila ( .eq(0) representa la fila 1 )     
-                    total_col1 += parseFloat($(this).find('th').eq(0).text());
-                    total_col2 += parseFloat($(this).find('th').eq(1).text());
-                            
-                });
-                //Muestro el resultado en el th correspondiente a la columna
-                // $('#ejemplo tfoot tr th').eq(0).text("Total " + total_col1);
-                // $('#ejemplo tfoot tr th').eq(1).text("Total " + total_col2);
-                alert(total_col1);
-
-                ('#total').text(total_col1);
-
-            });
-=======
         refresh(){
             
             $('#tableSale').bootstrapTable('refresh');
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
         }
 
     },
     
-<<<<<<< HEAD
-=======
     
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
 }
 </script>
 
@@ -537,10 +374,7 @@ export default {
         border: 1px solid rgb(19, 18, 18);
         box-shadow: 3px 3px 3px 3px rgb(123, 190, 157);
         border-radius: 15px;
-<<<<<<< HEAD
-=======
         padding: 1rem;
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
     }
 
     .title-form{
@@ -570,8 +404,4 @@ export default {
         margin-left: -125px;
     }
 
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> d8560ab23f0945b9f28051015d596d55f0e5d69b
