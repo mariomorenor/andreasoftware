@@ -15,7 +15,12 @@ class CreateVouchersTable extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId("clients_id")->constrained("clients");
+            $table->date("date_sale");
+            $table->string("payment_method");
+            $table->boolean("active");
+            $table->foreignId("users_id")->constrained("users");
+            $table->foreignId("sellers_id")->constrained("sellers");
             $table->timestamps();
         });
     }
