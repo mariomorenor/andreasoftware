@@ -227,12 +227,6 @@ export default {
     },
     methods: {
         deleteTable(){
-<<<<<<< HEAD
-            console.log('a')
-            $('#tableSale').bootstrapTable('removeAll')
-        },
-        init() {
-=======
             Swal.fire({
                 icon: 'error',
                 title:'Se borraran todos los datos ingresados',
@@ -256,7 +250,6 @@ export default {
             });
         },
         init(){
->>>>>>> 47ea095998ca0b7a108ef0fc0a75ff080fbac8bd
             $('#tableSale').bootstrapTable({
                 height:'500'
             });
@@ -382,14 +375,7 @@ export default {
             
             $('#tableSale').bootstrapTable('refresh');
         }
-<<<<<<< HEAD
-
-    },
-    
-    
-=======
     }
->>>>>>> 47ea095998ca0b7a108ef0fc0a75ff080fbac8bd
 }
 </script>
 
@@ -433,9 +419,4 @@ export default {
     .btn-modify{
         margin-left: -125px;
     }
-<<<<<<< HEAD
-
 </style>
-=======
-</style>
->>>>>>> 47ea095998ca0b7a108ef0fc0a75ff080fbac8bd
