@@ -3,14 +3,14 @@
       <div id="toolbar" class="d-flex">
           <router-link :to="{name:'createClient'}" class="btn btn-primary">Agregar Cliente <i
                   class="fas fa-plus-circle"></i></router-link>
-          <form action="/report-download/clients" id="formPDFSeller" class="inline-block" method="get">
+          <form action="/report-download/sellers" id="formPDFSeller" class="inline-block" method="get">
               <input type="hidden" name="format" value="PDF">
               <input type="hidden" name='totalPages' :value="totalPages">
               <input type="hidden" name='pageNumber' :value="pageNumber">
               <input type="hidden" name='pageSize' :value="pageSize">
               <button type="button" v-on:click="downloadPDFClient()" class="btn btn-danger ml-5">PDF</button>
           </form>
-          <form action="/report-download/clients" class="inline-block" method="get">
+          <form action="/report-download/sellers" class="inline-block" method="get">
               <input type="hidden" name="format" value="EXCEL">
               <button type="submit" class="btn btn-success ml-1">EXCEL</button>
           </form>

@@ -20,6 +20,7 @@ require('moment/locale/es');
 
 Vue.component('app-component', require('./components/App.vue').default);
 Vue.component('navbar-component', require('./components/Navbar.vue').default);
+Vue.component('dataclient-component', require('./components/SalesDataClienteComponent.vue').default);
 
 import Vuex from 'vuex'
 

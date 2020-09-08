@@ -12,7 +12,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        // return $request;
+        
         if ($request->ajax()) {
             $products = Product::with(['prices'])->get(['*','name as product']);
             if ($request->has('product')) {

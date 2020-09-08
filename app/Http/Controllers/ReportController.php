@@ -25,6 +25,9 @@ class ReportController extends Controller
             case 'banks':
                 return $this->banks($request->format, $request);
                 break;
+            case 'sellers':
+                return $this->sellers($request->format, $request);
+                break;
             default:
                 # code...
                 break;
@@ -79,5 +82,9 @@ class ReportController extends Controller
         }
     }
 
+    public function sellers()
+    {
+        
+    }
 
 }
