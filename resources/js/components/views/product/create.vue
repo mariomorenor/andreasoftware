@@ -24,27 +24,27 @@
                       <div class="col">
                           <div class="form-group">
                               <label for="" class="font-weight-bold">Efectivo:</label>
-                              <input name="cash" v-model="cash" type="number" class="form-control">
+                              <input name="cash" v-model="cash" type="number" class="validarNumeros form-control">
                           </div>
                           <div class="form-group">
                               <label for="costo" class="font-weight-bold">Costo:</label>
-                              <input name="cost" v-model="cost" type="number" class="form-control">
+                              <input name="cost" v-model="cost" type="number" class="validarNumeros form-control">
                           </div>
                       </div>
                       <div class="col">
                           <div class="form-group">
                               <label for="" class="font-weight-bold">Promoción:</label>
-                              <input name="promo" v-model="promo" type="number" class="form-control">
+                              <input name="promo" v-model="promo" type="number" class="validarNumeros form-control">
                           </div>
                           <div class="form-group">
                               <label for="" class="font-weight-bold">Stock:</label>
-                              <input name="stock" v-model="stock" type="number" class="form-control">
+                              <input name="stock" v-model="stock" type="number" class="validarNumeros form-control">
                           </div>
                       </div>
                       <div class="col">
                           <div class="form-group">
                               <label for="" class="font-weight-bold">Crédito:</label>
-                              <input name="credit" v-model="credit" type="number" class="form-control">
+                              <input name="credit" v-model="credit" type="number" class="validarNumeros form-control">
                           </div>
                       </div>
                   </div>
@@ -70,6 +70,17 @@ data() {
         cost:'',
         stock:''
     }
+},
+mounted(){
+  
+    $(function(){
+        $(".validarNumeros").keydown(function(event){
+            if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+                return false;
+            }
+        });
+    });
+
 },
 methods: {
     storeProduct(){

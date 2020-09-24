@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="quantity">Cantidad $:</label>
-                                <input type="number" name="quantityIncome" v-model="quantityIncome" id="quantityIncome" class="form-control" required>
+                                <input type="number" name="quantityIncome" v-model="quantityIncome" id="quantityIncome" class="validarNumeros form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="timeNewIncome">Hora:</label>
@@ -95,6 +95,15 @@ export default {
     mounted() {
         this.init()
         this.screenSize();
+
+        $(function(){
+        $(".validarNumeros").keydown(function(event){
+            if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+                return false;
+            }
+            });
+        });
+
     },
     methods: {
         screenSize(){

@@ -6,15 +6,15 @@
               <div class="col-6">
                   <div class="form-group">
                       <label for="name" class="font-weight-bold">Nombres:</label>
-                      <input type="text" class="form-control" name="name" >
+                      <input type="text" class="validarLetras form-control" name="name" >
                   </div>
                   <div class="form-group">
                       <label for="last_name" class="font-weight-bold">Apellidos:</label>
-                      <input type="text" class="form-control" name="last_name">
+                      <input type="text" class="validarLetras form-control" name="last_name">
                   </div>
                   <div class="form-group">
                       <label for="identifier" class="font-weight-bold">Cédula/Ruc:</label>
-                      <input type="text" class="form-control"  name="cedula">
+                      <input type="text" class="validarNumeros form-control"  name="cedula">
                   </div>
               </div>
               <div class="col-6">
@@ -24,7 +24,7 @@
                   </div>
                   <div class="form-group">
                       <label for="phone" class="font-weight-bold">Teléfono:</label>
-                      <input type="text" class="form-control"  name="phone">
+                      <input type="text" class="validarNumeros form-control"  name="phone">
                   </div>
                   <div class="form-group">
                       <label for="email" class="font-weight-bold">Correo:</label>
@@ -43,6 +43,24 @@
 
 <script>
 export default {
+mounted(){
+    
+    $(function(){
+        $(".validarNumeros").keydown(function(event){
+            if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+                return false;
+            }
+            });
+    });
+
+    $(function(){
+        $(".validarLetras").keydown(function(event){
+            if(event.keyCode >= 48 && event.keyCode <= 57){
+                return false;
+            }
+        });
+    });
+},
 methods: {
     storeClient(){
         axios.post('/clients',$('#formClient').serialize())

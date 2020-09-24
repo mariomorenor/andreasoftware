@@ -6588,6 +6588,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6602,7 +6604,23 @@ __webpack_require__.r(__webpack_exports__);
       client: ''
     };
   },
-  //=---- 
+  //TODO yo agregé esto
+  mounted: function mounted() {
+    $(function () {
+      $(".validarNumeros").keydown(function (event) {
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+          return false;
+        }
+      });
+    });
+    $(function () {
+      $(".validarLetras").keydown(function (event) {
+        if (event.keyCode >= 48 && event.keyCode <= 57) {
+          return false;
+        }
+      });
+    });
+  },
   methods: {
     checkClient: function checkClient() {
       var _this = this;
@@ -6644,8 +6662,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     }
-  } // -----
-
+  }
 });
 
 /***/ }),
@@ -6755,6 +6772,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.init();
     this.screenSize();
+    $(function () {
+      $(".validarNumeros").keydown(function (event) {
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+          return false;
+        }
+      });
+    });
   },
   methods: {
     screenSize: function screenSize() {
@@ -6900,6 +6924,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    $(function () {
+      $(".validarNumeros").keydown(function (event) {
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+          return false;
+        }
+      });
+    });
+    $(function () {
+      $(".validarLetras").keydown(function (event) {
+        if (event.keyCode >= 48 && event.keyCode <= 57) {
+          return false;
+        }
+      });
+    });
+  },
   methods: {
     storeClient: function storeClient() {
       var _this = this;
@@ -7003,7 +7043,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    $(function () {
+      $(".validarNumeros").keydown(function (event) {
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+          return false;
+        }
+      });
+    });
+    $(function () {
+      $(".validarLetras").keydown(function (event) {
+        if (event.keyCode >= 48 && event.keyCode <= 57) {
+          return false;
+        }
+      });
+    });
+  },
   methods: {
     updateClient: function updateClient() {
       var _this = this;
@@ -7459,6 +7514,15 @@ __webpack_require__.r(__webpack_exports__);
       stock: ''
     };
   },
+  mounted: function mounted() {
+    $(function () {
+      $(".validarNumeros").keydown(function (event) {
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+          return false;
+        }
+      });
+    });
+  },
   methods: {
     storeProduct: function storeProduct() {
       var _this = this;
@@ -7790,6 +7854,82 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 window.operateEventsSale = {
   'click .deleteButtonSales': function clickDeleteButtonSales(e, value, row) {
     $('#tableSale').bootstrapTable('remove', {
@@ -7801,6 +7941,18 @@ window.operateEventsSale = {
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      //TODO copié desde aquí
+
+      /*ci:'',
+      name: '',
+      last_name: '',
+      address: '',
+      phone: '',
+      email: '',
+      date: '',
+      userExist: false,
+      client: '',*/
+      //TODO copié hasta aquí
       productList: '',
       inputProduct: '',
       quantity: 1,
@@ -7810,12 +7962,72 @@ window.operateEventsSale = {
     };
   },
   mounted: function mounted() {
-    this.init();
+    this.init(); //TODO si funciona pero lo comento porque lo estoy probando por componentes
+
+    /*$(function(){
+    $(".validarNumeros").keydown(function(event){
+        //alert(event.keyCode);
+        if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+            return false;
+        }
+        });
+    });
+      $(function(){
+        $(".validarLetras").keydown(function(event){
+            //alert(event.keyCode);
+            if(event.keyCode >= 48 && event.keyCode <= 57){
+                return false;
+            }
+        });
+    });*/
   },
   beforeMount: function beforeMount() {
     this.date = moment().format('YYYY-MM-DD');
   },
   methods: _defineProperty({
+    //TODO copié desde aquí
+
+    /*checkClient() {
+        if (this.ci == '') {
+            Swal.fire('El número no se encuentra registrado', '', 'error')
+        } else {
+            axios.get('/clients/1', {
+                params: {
+                    cedula: $('#cedula').val()
+                }
+            })
+            .then(({
+                data
+            }) => {
+                if (data) {
+                    this.name = data.name;
+                    this.last_name = data.last_name;
+                    this.address = data.address;
+                    this.phone = data.phone;
+                    this.email = data.email;
+                    this.userExist = true;
+                    this.client = data
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'No existe datos para la cédula ingresada!',
+                        timer: 1000
+                    });
+                    this.name = '';
+                    this.last_name = '';
+                    this.address = '';
+                    this.phone = '';
+                    this.email = '';
+                    this.userExist = false;
+                    this.client = '';
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+        }
+    },*/
+    //TODO copie hasta aquí
     deleteTable: function deleteTable() {
       Swal.fire({
         icon: 'error',
@@ -69703,287 +69915,292 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("p", { staticClass: "title-form-group" }, [_vm._v("Cliente")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _vm._m(0),
+    _c("form", { attrs: { action: "", name: "myForm" } }, [
+      _c("p", { staticClass: "title-form-group" }, [_vm._v("Cliente")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.ci,
-              expression: "ci"
-            }
-          ],
-          staticClass: "form-control",
-          staticStyle: { width: "73%" },
-          attrs: {
-            type: "text",
-            name: "cedula",
-            id: "cedula",
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.ci },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.ci,
+                expression: "ci"
               }
-              _vm.ci = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4 button-container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success",
-                attrs: { type: "button", title: "Confirmar cédula" },
-                on: {
-                  click: function($event) {
-                    return _vm.checkClient()
-                  }
+            ],
+            staticClass: "validarNumeros form-control",
+            staticStyle: { width: "73%" },
+            attrs: {
+              type: "text",
+              name: "cedula",
+              id: "cedula",
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.ci },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
                 }
-              },
-              [_c("i", { staticClass: "fas fa-check-circle" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 btn-modify" }, [
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.userExist,
-                    expression: "userExist"
-                  }
-                ]
-              },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-outline-primary",
-                    attrs: {
-                      title: "Modificar Usuario",
-                      to: { name: "editClient", params: { client: _vm.client } }
+                _vm.ci = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 button-container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-6" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success",
+                  attrs: { type: "button", title: "Confirmar cédula" },
+                  on: {
+                    click: function($event) {
+                      return _vm.checkClient()
                     }
-                  },
-                  [_c("i", { staticClass: "fas fa-edit" })]
-                )
-              ],
-              1
-            )
+                  }
+                },
+                [_c("i", { staticClass: "fas fa-check-circle" })]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6 btn-modify" }, [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.userExist,
+                      expression: "userExist"
+                    }
+                  ]
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-outline-primary",
+                      attrs: {
+                        title: "Modificar Usuario",
+                        to: {
+                          name: "editClient",
+                          params: { client: _vm.client }
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-edit" })]
+                  )
+                ],
+                1
+              )
+            ])
           ])
         ])
-      ])
-    ]),
-    _c("br"),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.name,
-              expression: "name"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "name",
-            id: "name",
-            readonly: _vm.userExist,
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.name = $event.target.value
-            }
-          }
-        })
       ]),
+      _c("br"),
       _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.last_name,
-              expression: "last_name"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "last_name",
-            id: "last_name",
-            readonly: _vm.userExist,
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.last_name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _c("div", { staticClass: "row" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
               }
-              _vm.last_name = $event.target.value
+            ],
+            staticClass: "validarLetras form-control",
+            attrs: {
+              type: "text",
+              name: "name",
+              id: "name",
+              readonly: _vm.userExist,
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
             }
-          }
-        })
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.last_name,
+                expression: "last_name"
+              }
+            ],
+            staticClass: "validarLetras form-control",
+            attrs: {
+              type: "text",
+              name: "last_name",
+              id: "last_name",
+              readonly: _vm.userExist,
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.last_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.last_name = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.address,
+                expression: "address"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              name: "address",
+              id: "address",
+              readonly: _vm.userExist,
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.address },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.address = $event.target.value
+              }
+            }
+          })
+        ])
       ]),
+      _c("br"),
       _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.address,
-              expression: "address"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "address",
-            id: "address",
-            readonly: _vm.userExist,
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.address },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _c("div", { staticClass: "row" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.phone,
+                expression: "phone"
               }
-              _vm.address = $event.target.value
-            }
-          }
-        })
-      ])
-    ]),
-    _c("br"),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _vm._m(4),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.phone,
-              expression: "phone"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "phone",
-            id: "phone",
-            readonly: _vm.userExist,
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.phone },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            staticClass: "validarNumeros form-control",
+            attrs: {
+              type: "text",
+              name: "phone",
+              id: "phone",
+              readonly: _vm.userExist,
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.phone },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.phone = $event.target.value
               }
-              _vm.phone = $event.target.value
             }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _vm._m(5),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.email,
-              expression: "email"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            name: "email",
-            id: "email",
-            readonly: _vm.userExist,
-            autocomplete: "off",
-            required: ""
-          },
-          domProps: { value: _vm.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.email,
+                expression: "email"
               }
-              _vm.email = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _vm._m(6),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-3" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.date,
-              expression: "date"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "date", name: "date", id: "date", required: "" },
-          domProps: { value: _vm.date },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              name: "email",
+              id: "email",
+              readonly: _vm.userExist,
+              autocomplete: "off",
+              required: ""
+            },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value
               }
-              _vm.date = $event.target.value
             }
-          }
-        })
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.date,
+                expression: "date"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "date", name: "date", id: "date", required: "" },
+            domProps: { value: _vm.date },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.date = $event.target.value
+              }
+            }
+          })
+        ])
       ])
     ])
   ])
@@ -70304,7 +70521,7 @@ var render = function() {
                           expression: "quantityIncome"
                         }
                       ],
-                      staticClass: "form-control",
+                      staticClass: "validarNumeros form-control",
                       attrs: {
                         type: "number",
                         name: "quantityIncome",
@@ -70582,7 +70799,7 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("input", {
-            staticClass: "form-control",
+            staticClass: "validarLetras form-control",
             attrs: { type: "text", name: "name" }
           })
         ]),
@@ -70595,7 +70812,7 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("input", {
-            staticClass: "form-control",
+            staticClass: "validarLetras form-control",
             attrs: { type: "text", name: "last_name" }
           })
         ]),
@@ -70608,7 +70825,7 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("input", {
-            staticClass: "form-control",
+            staticClass: "validarNumeros form-control",
             attrs: { type: "text", name: "cedula" }
           })
         ])
@@ -70636,7 +70853,7 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("input", {
-            staticClass: "form-control",
+            staticClass: "validarNumeros form-control",
             attrs: { type: "text", name: "phone" }
           })
         ]),
@@ -70695,7 +70912,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
-                staticClass: "form-control",
+                staticClass: "validarLetras form-control",
                 attrs: { type: "text", name: "name" },
                 domProps: { value: this.$route.params.client.name }
               })
@@ -70712,7 +70929,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
-                staticClass: "form-control",
+                staticClass: "validarLetras form-control",
                 attrs: { type: "text", name: "last_name" },
                 domProps: { value: this.$route.params.client.last_name }
               })
@@ -70729,7 +70946,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
-                staticClass: "form-control",
+                staticClass: "validarNumeros form-control",
                 attrs: { type: "text", name: "cedula" },
                 domProps: { value: this.$route.params.client.cedula }
               })
@@ -70759,7 +70976,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("input", {
-                staticClass: "form-control",
+                staticClass: "validarNumeros form-control",
                 attrs: { type: "text", name: "phone" },
                 domProps: { value: this.$route.params.client.phone }
               })
@@ -71503,7 +71720,7 @@ var render = function() {
                         expression: "cash"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: { name: "cash", type: "number" },
                     domProps: { value: _vm.cash },
                     on: {
@@ -71536,7 +71753,7 @@ var render = function() {
                         expression: "cost"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: { name: "cost", type: "number" },
                     domProps: { value: _vm.cost },
                     on: {
@@ -71568,7 +71785,7 @@ var render = function() {
                         expression: "promo"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: { name: "promo", type: "number" },
                     domProps: { value: _vm.promo },
                     on: {
@@ -71598,7 +71815,7 @@ var render = function() {
                         expression: "stock"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: { name: "stock", type: "number" },
                     domProps: { value: _vm.stock },
                     on: {
@@ -71630,7 +71847,7 @@ var render = function() {
                         expression: "credit"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: { name: "credit", type: "number" },
                     domProps: { value: _vm.credit },
                     on: {
@@ -72011,7 +72228,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "form",
-        { attrs: { id: "formSale", action: "#" } },
+        { attrs: { id: "formSale", name: "formSale", action: "#" } },
         [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-12" }, [
@@ -72253,7 +72470,7 @@ var render = function() {
                         expression: "quantity"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "validarNumeros form-control",
                     attrs: {
                       type: "number",
                       min: "1",
@@ -90348,15 +90565,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/views/sales/index.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_vue_vue_type_template_id_d09b539a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=d09b539a& */ "./resources/js/components/views/sales/index.vue?vue&type=template&id=d09b539a&");
 /* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/views/sales/index.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/views/sales/index.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -90388,7 +90604,7 @@ component.options.__file = "resources/js/components/views/sales/index.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/views/sales/index.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90709,8 +90925,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Andrea\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Andrea\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\andrea\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\andrea\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
